@@ -1,0 +1,18 @@
+Fitter Status : Successful - Tue Oct 21 22:39:59 2025
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : Project_Group77
+Top-level Entity Name : proc_top_level
+Family : MAX 10
+Device : 10M50DAF484C7G
+Timing Models : Final
+Total logic elements : 497 / 49,760 ( < 1 % )
+    Total combinational functions : 450 / 49,760 ( < 1 % )
+    Dedicated logic registers : 173 / 49,760 ( < 1 % )
+Total registers : 173
+Total pins : 28 / 360 ( 8 % )
+Total virtual pins : 0
+Total memory bits : 0 / 1,677,312 ( 0 % )
+Embedded Multiplier 9-bit elements : 2 / 288 ( < 1 % )
+Total PLLs : 0 / 4 ( 0 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0 / 2 ( 0 % )

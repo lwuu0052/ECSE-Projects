@@ -1,0 +1,73 @@
+module FPGA_Master_top_level (
+    input  wire        CLOCK_50, // 50 MHz clock
+    input  wire [17:0] SW,       // 18 Switches
+    input  wire [3:0]  KEY,      // Keys for reset/trigger
+    output wire        SPI_SCK,  // To Teensy Pin 13
+    output wire        SPI_MOSI, // To Teensy Pin 11
+    output wire        SPI_CS    // To Teensy Pin 10
+);
+
+    wire rst_n = KEY[0]; // Use KEY0 as reset
+
+    // =====================================================
+    // 1. Data Preparation (Map Switches to ASCII)
+    // =====================================================
+    // User requested: if first and second switches are on, show "h 30" (ASCII '0')
+    // Here we map SW[7:0] to the first byte and SW[15:8] to the second byte.
+    // We convert the 8-bit switch value into a displayable ASCII character.
+    // For example, if SW[3:0] represents a hex value, we convert it to ASCII '0'-'F'.
+    
+    wire [7:0] ascii_byte1;
+    wire [7:0] ascii_byte2;
+
+    // Mapping logic: Convert lower 4 bits of each byte to ASCII '0'-'9' or 'A'-'F'
+    // This follows the spirit of your BCD module requirement.
+    function [7:0] to_ascii;
+        input [3:0] val;
+        begin
+            if (val < 10) to_ascii = 8'h30 + val; // '0'-'9'
+            else          to_ascii = 8'h37 + val; // 'A'-'F' (8'h41 - 10)
+        end
+    endfunction
+
+    // Example: Sending two hex digits representing the state of switches
+    assign ascii_byte1 = to_ascii(SW[3:0]);
+    assign ascii_byte2 = to_ascii(SW[7:4]);
+
+    // =====================================================
+    // 2. Transmission Timer
+    // =====================================================
+    reg [24:0] timer;
+    reg        start_sig;
+    wire       trans_done;
+
+    always @(posedge CLOCK_50 or negedge rst_n) begin
+        if (!rst_n) begin
+            timer     <= 0;
+            start_sig <= 0;
+        end else begin
+            if (timer == 12500000) begin // Send every 0.25 seconds
+                timer     <= 0;
+                start_sig <= 1;
+            end else begin
+                timer <= timer + 1;
+                if (trans_done) start_sig <= 0;
+            end
+        end
+    end
+
+    // =====================================================
+    // 3. SPI Master Instance
+    // =====================================================
+    FPGA_Master spi_master_inst (
+        .clk(CLOCK_50),
+        .rst_n(rst_n),
+        .data_in({ascii_byte2, ascii_byte1}), // Send 2 Bytes
+        .start(start_sig),
+        .sck(SPI_SCK),
+        .mosi(SPI_MOSI),
+        .cs(SPI_CS),
+        .done(trans_done)
+    );
+
+endmodule

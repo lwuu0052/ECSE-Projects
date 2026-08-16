@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../4_9/Teensy/Teensy_SPI_Master"
+		},
+		{
+			"name": "Teensy_Slave",
+			"path": "../../../../OneDrive/文件/PlatformIO/Projects/Teensy_Slave"
+		}
+	],
+	"settings": {}
+}

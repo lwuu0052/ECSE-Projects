@@ -1,0 +1,645 @@
+`timescale 1ns/1ns
+
+/*
+Monash University ECE2072: Assignment 
+This file contains a Verilog test bench to test the correctness of the processor.
+
+Please enter your student ID: Wu Li Min (34478841), Yeoh Jie Ying (34601643)
+
+*/
+
+module proc_extension_tb;
+
+    // TODO: Implement the logic of your testbench here
+     
+    reg        clk;
+    reg        rst;
+    reg        enable;
+    reg  [8:0] din;
+
+    wire [7:0] HEX0, HEX1, HEX2, HEX3, HEX4;
+    wire [7:0] HEX5;
+    wire [15:0] R0, R1, R2, R3, R4, R5, R6, R7, display, bus;
+
+    simple_proc test2 (
+        .clk(clk),
+        .rst(rst),
+        .enable(enable),
+        .din(din),
+        .HEX0(HEX0), .HEX1(HEX1), .HEX2(HEX2), .HEX3(HEX3), .HEX4(HEX4), .HEX5(HEX5),
+        .bus(bus),
+        .R0(R0), .R1(R1), .R2(R2), .R3(R3),
+        .R4(R4), .R5(R5), .R6(R6), .R7(R7),
+        .display(display)
+    );
+
+    initial clk = 0;
+    always #5 clk = ~clk;
+     
+    // Sign extender function to extend the 9 bit DIN to 16 bit
+    function [15:0] sign_extender;
+        input [8:0] din_input;
+        begin
+            sign_extender = {{7{din_input[8]}}, din_input};
+        end
+    endfunction
+    
+    // Function to combine op, rx and ry into 9 bit DIN input
+    function [8:0] combine_din;
+        input [2:0] op, rx, ry;
+        begin
+            combine_din = {op, rx, ry};
+        end
+    endfunction
+     
+    reg [15:0] tR0, tR1, tR2, tR3, tR4, tR5, tR6, tR7;
+
+    // Function to relate index to their corresponding testbench internal register
+    function [15:0] get_register;
+        input [2:0] idx;
+        begin
+            case (idx)
+                3'd0: get_register = tR0;
+                3'd1: get_register = tR1;
+                3'd2: get_register = tR2;
+                3'd3: get_register = tR3;
+                3'd4: get_register = tR4;
+                3'd5: get_register = tR5;
+                3'd6: get_register = tR6;
+                3'd7: get_register = tR7;
+            endcase
+        end
+    endfunction
+
+    // Task to set the testbench internal register to their corresponding output value after operation
+    task set_register;
+        input [2:0] idx;
+        input [15:0] value;
+        begin
+            case (idx)
+                3'd0: tR0 = value;
+                3'd1: tR1 = value;
+                3'd2: tR2 = value;
+                3'd3: tR3 = value;
+                3'd4: tR4 = value;
+                3'd5: tR5 = value;
+                3'd6: tR6 = value;
+                3'd7: tR7 = value;
+            endcase
+        end
+    endtask
+     
+    // Obtain the value of the real output register
+    function [15:0] get_real_register;
+        input [2:0] idx;
+        begin
+            case (idx)
+                3'd0: get_real_register = R0;
+                3'd1: get_real_register = R1;
+                3'd2: get_real_register = R2;
+                3'd3: get_real_register = R3;
+                3'd4: get_real_register = R4;
+                3'd5: get_real_register = R5;
+                3'd6: get_real_register = R6;
+                3'd7: get_real_register = R7;
+            endcase
+        end
+    endfunction
+
+    // 7 segment BCD function for HEX display
+    function [6:0] bcd_7;
+        input [3:0] d;
+        begin
+            case (d)
+                4'd0: bcd_7 = 7'b1000000;
+                4'd1: bcd_7 = 7'b1111001;
+                4'd2: bcd_7 = 7'b0100100;
+                4'd3: bcd_7 = 7'b0110000;
+                4'd4: bcd_7 = 7'b0011001;
+                4'd5: bcd_7 = 7'b0010010;
+                4'd6: bcd_7 = 7'b0000010;
+                4'd7: bcd_7 = 7'b1111000;
+                4'd8: bcd_7 = 7'b0000000;
+                4'd9: bcd_7 = 7'b0010000;
+                default: bcd_7 = 7'b1111111;
+            endcase
+        end
+    endfunction
+
+    // 8 segment BCD function for HEX display with decimal point
+    function [7:0] bcd_8;
+        input [3:0] d;
+        input       sign_dp;
+        reg  [6:0]  seg;
+        begin
+            seg   = bcd_7(d);
+            bcd_8 = {~sign_dp, seg};
+        end
+    endfunction
+
+    // Decode 7-segment (no dp) back to a BCD digit 
+    function [3:0] bcd7_to_digit;
+        input [6:0] seg; 
+        begin
+            case (seg)
+                7'b1000000: bcd7_to_digit = 4'd0;
+                7'b1111001: bcd7_to_digit = 4'd1;
+                7'b0100100: bcd7_to_digit = 4'd2;
+                7'b0110000: bcd7_to_digit = 4'd3;
+                7'b0011001: bcd7_to_digit = 4'd4;
+                7'b0010010: bcd7_to_digit = 4'd5;
+                7'b0000010: bcd7_to_digit = 4'd6;
+                7'b1111000: bcd7_to_digit = 4'd7;
+                7'b0000000: bcd7_to_digit = 4'd8;
+                7'b0010000: bcd7_to_digit = 4'd9;
+                default   : bcd7_to_digit = 4'hF;
+            endcase
+        end
+    endfunction
+
+		function [3:0] mod10_4;
+			 input [15:0] x;
+			 reg   [15:0] temp;
+			 begin
+			     temp = x % 16'd10;
+				  mod10_4 = temp[3:0];
+			 end
+		endfunction
+
+		// Task to split 16-bit signed value into decimal digits and sign 
+		task split_digits;
+			 input  signed [15:0] value;
+			 output [3:0]  D0, D1, D2, D3, D4;
+			 output        sign;
+			 reg   [15:0]  abs_value;
+			 reg   [15:0]  q1, q2, q3, q4;
+			 begin
+				  sign      = value[15];
+				  abs_value = (value < 0) ? -value : value;
+
+				  // staged divide-by-10 with 16-bit divisors to keep widths tight
+				  D0 = mod10_4(abs_value);
+				  q1 = abs_value / 16'd10;
+
+				  D1 = mod10_4(q1);
+				  q2 = q1 / 16'd10;
+
+				  D2 = mod10_4(q2);
+				  q3 = q2 / 16'd10;
+
+				  D3 = mod10_4(q3);
+				  q4 = q3 / 16'd10;
+
+				  D4 = mod10_4(q4);
+			 end
+		endtask
+
+
+    // Task to check HEX0-4 against the expected hex display
+    task check_hex_display;
+        input  signed [15:0] val;
+        input  [7:0] HEX0_t, HEX1_t, HEX2_t, HEX3_t, HEX4_t;
+        inout integer errors_ref;
+        inout integer count_ref;
+        reg [3:0] d0,d1,d2,d3,d4;
+        reg       sign;
+        reg [7:0] e0,e1,e2,e3,e4;
+        begin
+            split_digits(val, d0,d1,d2,d3,d4, sign);
+
+            e0 = bcd_8(d0, sign);
+            e1 = bcd_8(d1, sign);
+            e2 = bcd_8(d2, sign);
+            e3 = bcd_8(d3, sign);
+            e4 = bcd_8(d4, sign);
+
+            if (HEX0_t !== e0) begin
+                $display("Error (HEX0): Got=%b Expected=%b (val=%0d)", HEX0_t, e0, val);
+                errors_ref = errors_ref + 1;
+            end
+            count_ref = count_ref + 1;
+
+            if (HEX1_t !== e1) begin
+                $display("Error (HEX1): Got=%b Expected=%b (val=%0d)", HEX1_t, e1, val);
+                errors_ref = errors_ref + 1;
+            end
+            count_ref = count_ref + 1;
+
+            if (HEX2_t !== e2) begin
+                $display("Error (HEX2): Got=%b Expected=%b (val=%0d)", HEX2_t, e2, val);
+                errors_ref = errors_ref + 1;
+            end
+            count_ref = count_ref + 1;
+
+            if (HEX3_t !== e3) begin
+                $display("Error (HEX3): Got=%b Expected=%b (val=%0d)", HEX3_t, e3, val);
+                errors_ref = errors_ref + 1;
+            end
+            count_ref = count_ref + 1;
+
+            if (HEX4_t !== e4) begin
+                $display("Error (HEX4): Got=%b Expected=%b (val=%0d)", HEX4_t, e4, val);
+                errors_ref = errors_ref + 1;
+            end
+            count_ref = count_ref + 1;
+        end
+    endtask
+     
+    // Task to make sure each checking start at tick 1
+    task start_with_tick1;
+        integer count;
+        reg [3:0] current_value;
+        begin
+            count = 0;
+
+            #1;
+            current_value = bcd7_to_digit(HEX5[6:0]);
+
+            while (current_value !== 4'd1 && count < 16) begin
+                @(posedge clk); #1;
+                current_value = bcd7_to_digit(HEX5[6:0]);
+                count = count + 1;
+            end
+        end
+    endtask
+
+    // Task to run through 4 ticks and check the display of HEX5 tick
+    task run_ticks_and_check_hex5;
+        inout integer errors_ref;
+        inout integer count_ref;
+        integer i;
+        reg [3:0] expected_digit;
+        reg [6:0] expected;
+        begin
+
+            start_with_tick1();
+
+            expected_digit = 4'd1;
+            expected       = bcd_7(expected_digit);
+            #1;
+            if (HEX5[6:0] !== expected) begin
+                $display("Error (HEX5 tick): sub-tick 0 Got=%b Expected=%b (digit %0d)",
+                         HEX5[6:0], expected, expected_digit);
+                errors_ref = errors_ref + 1;
+            end
+            count_ref = count_ref + 1;
+
+            for (i = 1; i < 4; i = i + 1) begin
+                @(posedge clk); #1;
+                case (expected_digit)
+                    4'd1: expected_digit = 4'd2;
+                    4'd2: expected_digit = 4'd3;
+                    4'd3: expected_digit = 4'd4;
+                    default: expected_digit = 4'd1;
+                endcase
+                expected = bcd_7(expected_digit);
+                if (HEX5[6:0] !== expected) begin
+                    $display("Error (HEX5 tick): sub-tick %0d Got=%b Expected=%b (digit %0d)",
+                             i, HEX5[6:0], expected, expected_digit);
+                    errors_ref = errors_ref + 1;
+                end
+                count_ref = count_ref + 1;
+            end
+
+            @(posedge clk); #1;
+        end
+    endtask
+	 
+    // Run 4 ticks for immediate function 
+	task run_imm_ticks;
+		 input [2:0] op;          
+		 input [2:0] rx;          
+		 input [8:0] imm9;        
+		 begin
+			  start_with_tick1();
+
+			  din = combine_din(op, rx, 3'b000);
+			  @(posedge clk); #1; 
+
+			  din = imm9;
+			  @(posedge clk); #1; 
+			  @(posedge clk); #1;  
+			  @(posedge clk); #1;  
+		 end
+	endtask
+
+
+    integer errors, count;
+    integer i, j;
+    integer k;
+    integer change;
+
+    reg [15:0] last_rx, last_ry;
+
+    reg  [2:0]           imm3;
+    reg  [8:0]           imm9;
+    reg  signed [15:0]   shift_amount;
+    reg  signed [15:0]   rx_value;
+    reg  signed [15:0]   expected;
+
+    initial begin
+        errors = 0;
+        count  = 0;
+
+        // Test reset function (all registers should reset to 0)
+        enable = 1'b0;
+        rst    = 1'b1;
+        din    = 9'd0;
+        tR0=0; tR1=0; tR2=0; tR3=0; tR4=0; tR5=0; tR6=0; tR7=0;
+
+        repeat (5) @(posedge clk); #1;
+
+        if (R0 !== 16'h0000) begin $display("Error: when rst=1, all register content should reset to 0. Got R0=%h, Expected=0000", R0); errors = errors + 1; end count = count + 1;
+        if (R1 !== 16'h0000) begin $display("Error: when rst=1, all register content should reset to 0. Got R1=%h, Expected=0000", R1); errors = errors + 1; end count = count + 1;
+        if (R2 !== 16'h0000) begin $display("Error: when rst=1, all register content should reset to 0. Got R2=%h, Expected=0000", R2); errors = errors + 1; end count = count + 1;
+        if (R3 !== 16'h0000) begin $display("Error: when rst=1, all register content should reset to 0. Got R3=%h, Expected=0000", R3); errors = errors + 1; end count = count + 1;
+        if (R4 !== 16'h0000) begin $display("Error: when rst=1, all register content should reset to 0. Got R4=%h, Expected=0000", R4); errors = errors + 1; end count = count + 1;
+        if (R5 !== 16'h0000) begin $display("Error: when rst=1, all register content should reset to 0. Got R5=%h, Expected=0000", R5); errors = errors + 1; end count = count + 1;
+        if (R6 !== 16'h0000) begin $display("Error: when rst=1, all register content should reset to 0. Got R6=%h, Expected=0000", R6); errors = errors + 1; end count = count + 1;
+        if (R7 !== 16'h0000) begin $display("Error: when rst=1, all register content should reset to 0. Got R7=%h, Expected=0000", R7); errors = errors + 1; end count = count + 1;
+        $display("Done with test for reset. 8 tests run.");
+
+        // Release reset and enable FSM
+        rst    = 1'b0;
+        enable = 1'b1;
+        repeat (5) @(posedge clk); #1;
+
+        for (change = 0; change < 3; change = change + 1) begin
+
+            // Test MOVI function and HEX5 tick 
+            for (i = 0; i < 8; i = i + 1) begin
+                last_rx = get_register(i[2:0]);
+                din = combine_din(3'b111, i[2:0], ((change + 1) & 3'b111)); // opcode=111 (MOVI)
+                set_register(i[2:0], sign_extender(din));
+                run_ticks_and_check_hex5(errors, count);
+                if (get_real_register(i[2:0]) !== get_register(i[2:0])) begin
+                    $display("Error: when MOVI: loop=%0d Rx=%0d old=%h, imm(signext(din=%b))=%h. Got=%h Expected=%h",
+                             change, i, last_rx, din, sign_extender(din), get_real_register(i[2:0]), get_register(i[2:0]));
+                    errors = errors + 1;
+                end
+                count = count + 1;
+            end
+            $display("Done with test for movi function loop %0d. 8 tests run.", change);
+
+            // Test ADD function
+            for (i = 0; i < 8; i = i + 1) begin
+                for (j = 0; j < 8; j = j + 1) begin
+                    last_rx = get_register(i[2:0]);
+                    last_ry = get_register(j[2:0]);
+                    din = combine_din(3'b001, i[2:0], j[2:0]); // opcode=001 (ADD)
+                    set_register(i[2:0], last_rx + last_ry);
+                    run_ticks_and_check_hex5(errors, count);
+
+                    // rx <- rx + ry
+                    if (get_real_register(i[2:0]) !== get_register(i[2:0])) begin
+                        $display("Error: when ADD: loop=%0d Rx=%0d old=%h + Ry=%0d old=%h. Got Rx=%h Expected=%h",
+                                 change, i, last_rx, j, last_ry, get_real_register(i[2:0]), get_register(i[2:0]));
+                        errors = errors + 1;
+                    end
+
+                    count = count + 1;
+                end
+            end
+            $display("Done with test for add function loop %0d. 64 tests run.", change);
+          
+            // Test SUB function
+            for (i = 0; i < 8; i = i + 1) begin
+                for (j = 0; j < 8; j = j + 1) begin
+                    last_rx = get_register(i[2:0]);
+                    last_ry = get_register(j[2:0]);
+                    din = combine_din(3'b011, i[2:0], j[2:0]); // opcode=011 (SUB)
+                    set_register(i[2:0], last_rx - last_ry);
+                    run_ticks_and_check_hex5(errors, count);
+
+                    // rx <- rx - ry
+                    if (get_real_register(i[2:0]) !== get_register(i[2:0])) begin
+                        $display("Error: when SUB: loop=%0d Rx=%0d old=%h - Ry=%0d old=%h. Got Rx=%h Expected=%h",
+                                 change, i, last_rx, j, last_ry, get_real_register(i[2:0]), get_register(i[2:0]));
+                        errors = errors + 1;
+                    end
+
+                    count = count + 1;
+                end
+            end
+            $display("Done with test for sub function loop %0d. 64 tests run.", change);
+          
+            // Test ADDI function
+            for (i = 0; i < 8; i = i + 1) begin
+                last_rx = get_register(i[2:0]);
+
+                imm3 = change[1:0] + 3'd1;
+                imm9 = {6'd0, imm3};        
+                expected = $signed(last_rx) + $signed(sign_extender(imm9));
+
+                run_imm_ticks(3'b010, i[2:0], imm9); 
+
+                set_register(i[2:0], expected);
+                
+                // Rx <- rx + imm
+                if (get_real_register(i[2:0]) !== get_register(i[2:0])) begin
+                    $display("Error: when ADDI: loop=%0d Rx=%0d old=%h + imm(signext=%h). Got=%h Expected=%h",
+                             change, i, last_rx, sign_extender(imm9),
+                             get_real_register(i[2:0]), get_register(i[2:0]));
+                    errors = errors + 1;
+                end
+                count = count + 1;
+            end
+            $display("Done with test for addi function loop %0d. 8 tests run.", change);
+          
+            // Test MUL function
+            for (i = 0; i < 8; i = i + 1) begin
+                for (j = 0; j < 8; j = j + 1) begin
+                    last_rx = get_register(i[2:0]);
+                    last_ry = get_register(j[2:0]);
+                    din     = combine_din(3'b100, i[2:0], j[2:0]); // opcode=100 (MUL)
+                    set_register(i[2:0], last_rx * last_ry);
+                    run_ticks_and_check_hex5(errors, count);
+
+                    // rx <- rx * ry
+                    if (get_real_register(i[2:0]) !== get_register(i[2:0])) begin
+                        $display("Error: when MUL: loop=%0d Rx=%0d old=%h * Ry=%0d old=%h. Got Rx=%h Expected=%h",
+                                 change, i, last_rx, j, last_ry, get_real_register(i[2:0]), get_register(i[2:0]));
+                        errors = errors + 1;
+                    end
+
+                    count = count + 1;
+                end
+            end
+            $display("Done with test for mul function loop %0d. 64 tests run.", change);
+
+            // Test SSI function
+            for (i = 0; i < 8; i = i + 1) begin
+                last_rx = get_register(i[2:0]);
+                imm3 = change[1:0] + 3'd1;
+                imm9 = {6'd0, imm3};   
+                shift_amount = $signed(sign_extender(imm9));
+                rx_value     = $signed(last_rx);
+
+                if (shift_amount < 0)
+                    expected = rx_value >>> $unsigned(-shift_amount);
+                else if (shift_amount > 0)
+                    expected = rx_value <<< $unsigned(shift_amount);
+                else
+                    expected = rx_value;
+
+                run_imm_ticks(3'b101, i[2:0], imm9); 
+
+                set_register(i[2:0], expected);
+                
+                // SSI shift
+                if (get_real_register(i[2:0]) !== get_register(i[2:0])) begin
+                    $display("Error: when SSI: loop=%0d Rx=%0d old=%h shift=%0d. Got=%h Expected=%h",
+                             change, i, last_rx, shift_amount,
+                             get_real_register(i[2:0]), get_register(i[2:0]));
+                    errors = errors + 1;
+                end
+                count = count + 1;
+            end
+            $display("Done with test for ssi function loop %0d. 8 tests run.", change);
+
+            // Test DISP function 
+            for (i = 0; i < 8; i = i + 1) begin
+                din = combine_din(3'b000, i[2:0], 3'b000); // opcode=000 (DISP Rx)
+                run_ticks_and_check_hex5(errors, count);
+                #1;
+                check_hex_display(get_register(i[2:0]), HEX0, HEX1, HEX2, HEX3, HEX4, errors, count);
+                count = count + 1;
+            end
+            $display("Done with test for disp function loop %0d. 8 tests run.", change);
+
+        end
+		  
+        $display("Done with test checking HEX5 display.");
+        // Manual check for operations computed by hand (Edge cases) 
+        // Reset
+        rst    = 1'b1;  enable = 1'b0;  din = 9'd0;
+        repeat (2) @(posedge clk); #1;
+        rst    = 1'b0;  enable = 1'b1;
+        repeat (2) @(posedge clk); #1;
+
+        // Assign MOVI R7 = -1
+        din = combine_din(3'b111, 3'b111, 3'b111);
+        run_ticks_and_check_hex5(errors, count);
+        if (R7 !== 16'hFFFF) begin
+            $display("Error: when MOVI, Got R7=%h, Expected=FFFF (-1)", R7);
+            errors = errors + 1;
+        end
+        count = count + 1;
+
+        // Assign MOVI R0 = -64
+        din = combine_din(3'b111, 3'b000, 3'b000); 
+        run_ticks_and_check_hex5(errors, count);
+        if (R0 !== 16'hFFC0) begin
+            $display("Error: when MOVI, Got R0=%h, Expected=FFC0 (-64)", R0);
+            errors = errors + 1;
+        end
+        count = count + 1;
+        
+        // Loop 9 times for add -64 to get -32768 
+        for (k = 0; k < 9; k = k + 1) begin
+            din = combine_din(3'b001, 3'b000, 3'b000); 
+            run_ticks_and_check_hex5(errors, count);
+        end
+        if (R0 !== 16'h8000) begin
+            $display("Error: when MOVI, Got R0=%h, Expected=8000 (-32768)", R0);
+            errors = errors + 1;
+        end
+        count = count + 1;
+        
+        // Assign R1 = +1 (Sub R1 - R7)
+        din = combine_din(3'b011, 3'b001, 3'b001); 
+        run_ticks_and_check_hex5(errors, count);
+        din = combine_din(3'b011, 3'b001, 3'b111); 
+        run_ticks_and_check_hex5(errors, count);
+        if (R1 !== 16'h0001) begin
+            $display("Error: when MOVI, Got R1=%h, Expected=0001 (+1)", R1);
+            errors = errors + 1;
+        end
+        count = count + 1;
+        
+        // 1) Subtraction underflow R0 <- R0 - R1   (-32768 - 1 -> 0x7FFF)
+        din = combine_din(3'b011, 3'b000, 3'b001);  // SUB R0,R1
+        run_ticks_and_check_hex5(errors, count);
+        if (R0 !== 16'h7FFF) begin
+            $display("Edge Case 1 (Subtraction underflow: -32768 - 1). Got=%h Expected=7FFF (+32767)", R0);
+            errors = errors + 1;
+        end
+        count = count + 1;
+        
+        // 2) Addition overflow R0 <- R0 + R1   ( 32767 + 1 -> 0x8000)
+        din = combine_din(3'b001, 3'b000, 3'b001);  // ADD R0,R1
+        run_ticks_and_check_hex5(errors, count);
+        if (R0 !== 16'h8000) begin
+            $display("Edge Case 2 (Addition overflow): 32767 + 1. Got=%h Expected=8000 (-32768)", R0);
+            errors = errors + 1;
+        end
+        count = count + 1;
+        
+        // Assign R0 = -64
+        din = combine_din(3'b111, 3'b000, 3'b000);  
+        run_ticks_and_check_hex5(errors, count);
+        if (R0 !== 16'hFFC0) begin
+            $display("Error: when MOVI, Got R0=%h, Expected=FFC0 (-64)", R0);
+            errors = errors + 1;
+        end
+        count = count + 1;
+        
+        // Add -64 twice to get -256 
+        din = combine_din(3'b001, 3'b000, 3'b000); 
+        run_ticks_and_check_hex5(errors, count);
+        din = combine_din(3'b001, 3'b000, 3'b000);  
+        run_ticks_and_check_hex5(errors, count);
+        if (R0 !== 16'hFF00) begin
+            $display("Error: when MOVI, Got R0=%h, Expected=FF00 (-256)", R0);
+            errors = errors + 1;
+        end
+        count = count + 1;
+        
+        // 3) Multiplication overflow R0 <- R0 * R0 (-256)*(-256) = 0000
+        din = combine_din(3'b100, 3'b000, 3'b000);  
+        run_ticks_and_check_hex5(errors, count);
+        if (R0 !== 16'h0000) begin
+            $display("Edge Case 3 (Multiplication overflow): (-256)*(-256). Got=%h. Expected=0000", R0);
+            errors = errors + 1;
+        end
+        count = count + 1;
+        
+        // Rebuild R1 = +1
+        din = combine_din(3'b011, 3'b001, 3'b001);  
+        run_ticks_and_check_hex5(errors, count);
+        din = combine_din(3'b011, 3'b001, 3'b111);  
+        run_ticks_and_check_hex5(errors, count);
+        if (R1 !== 16'h0001) begin
+            $display("Error: when MOVI, Got R1=%h, Expected=0001 (+1)", R1);
+            errors = errors + 1;
+        end
+        count = count + 1;
+          
+		  // 4) Positive SSI R1 by 3: +1 << 3 = +8 (0008)
+			run_imm_ticks(3'b101, 3'b001, 9'd3);  
+			if (R1 !== 16'h0008) begin
+				 $display("Edge Case 4 (Positive value signed shift by positive imm): R1 (+1) << 3. Got=%h. Expected=0008 (+8)", R1);
+				 errors = errors + 1;
+			end
+			count = count + 1;
+
+			// Assign R0 = -64
+			din = combine_din(3'b111, 3'b000, 3'b000);
+			run_ticks_and_check_hex5(errors, count);
+
+			// 5) Negative SSI R0 by 3: -64 << 3 = -512 (0xFE00)
+			run_imm_ticks(3'b101, 3'b000, 9'd3);  
+			if (R0 !== 16'hFE00) begin
+			  $display("Edge Case 5 (Negtive value signed shift by positive imm): R0 (-64) << 3. Got=%h. Expected=FE00 (-512)", R0);
+			  errors = errors + 1;
+			end
+			count = count + 1;
+
+        $display("Done with edge case test computed manually. 12 tests run.");
+        $display("Done with test for task 3.");
+        $display("%0d tests run.", count);
+        $display("Total errors: %0d", errors);
+        $stop;
+    end
+
+endmodule

@@ -1,0 +1,9 @@
+
+State Machine - |FPGA_Master_top_level|FPGA_MST_SPI_Master:spi_master_inst|state
+Name state.ST_DONE state.ST_CS_HIGH state.ST_SEND state.ST_LOAD state.ST_CS_LOW state.ST_IDLE 
+state.ST_IDLE 0 0 0 0 0 0 
+state.ST_CS_LOW 0 0 0 0 1 1 
+state.ST_LOAD 0 0 0 1 0 1 
+state.ST_SEND 0 0 1 0 0 1 
+state.ST_CS_HIGH 0 1 0 0 0 1 
+state.ST_DONE 1 0 0 0 0 1 

@@ -1,0 +1,212 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/wulim/Desktop/2072 X72 PROJECT/simulation/modelsim
+vALU
+Z1 !s110 1761026338
+!i10b 1
+!s100 b6@gCd4cRAHW>OPYjab;41
+IHG=EBogz3MeRDTgcQe>8L1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1760975341
+Z4 8C:/Users/wulim/Desktop/2072 X72 PROJECT/components.v
+Z5 FC:/Users/wulim/Desktop/2072 X72 PROJECT/components.v
+L0 118
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1761026338.000000
+Z8 !s107 C:/Users/wulim/Desktop/2072 X72 PROJECT/components.v|
+Z9 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/wulim/Desktop/2072 X72 PROJECT|C:/Users/wulim/Desktop/2072 X72 PROJECT/components.v|
+!i113 1
+Z10 o-vlog01compat -work work
+Z11 !s92 -vlog01compat -work work {+incdir+C:/Users/wulim/Desktop/2072 X72 PROJECT}
+Z12 tCvgOpt 0
+n@a@l@u
+vBCD_decoder
+Z13 !s110 1761026337
+!i10b 1
+!s100 De[k6gRb@e3:0SOdn[P[91
+IiBOUXM62cUf:Tz<GZfbHW1
+R2
+R0
+w1761024331
+8C:/Users/wulim/Desktop/2072 X72 PROJECT/BCD_decoder.v
+FC:/Users/wulim/Desktop/2072 X72 PROJECT/BCD_decoder.v
+L0 1
+R6
+r1
+!s85 0
+31
+Z14 !s108 1761026337.000000
+!s107 C:/Users/wulim/Desktop/2072 X72 PROJECT/BCD_decoder.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/wulim/Desktop/2072 X72 PROJECT|C:/Users/wulim/Desktop/2072 X72 PROJECT/BCD_decoder.v|
+!i113 1
+R10
+R11
+R12
+n@b@c@d_decoder
+vBCD_sign
+R13
+!i10b 1
+!s100 Y@`<WZL]5FPa<zVLje>E41
+Ik8i8Ccm<aMZWRo<lKCIO[2
+R2
+R0
+w1760975546
+8C:/Users/wulim/Desktop/2072 X72 PROJECT/BCD_sign.v
+FC:/Users/wulim/Desktop/2072 X72 PROJECT/BCD_sign.v
+L0 1
+R6
+r1
+!s85 0
+31
+R14
+!s107 C:/Users/wulim/Desktop/2072 X72 PROJECT/BCD_sign.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/wulim/Desktop/2072 X72 PROJECT|C:/Users/wulim/Desktop/2072 X72 PROJECT/BCD_sign.v|
+!i113 1
+R10
+R11
+R12
+n@b@c@d_sign
+vmultiplexer
+R1
+!i10b 1
+!s100 >I;o09eb[Yg6C=h6F5RH42
+I8[Mjn;E:O[SE[lWhP@_>c0
+R2
+R0
+R3
+R4
+R5
+L0 83
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+R12
+vproc_extension_tb
+R13
+!i10b 1
+!s100 BT6@;X[08B8V79bEb=cR]2
+Ikz?^=7YfaJOmQmPlcAoj]0
+R2
+R0
+w1761026279
+8C:/Users/wulim/Desktop/2072 X72 PROJECT/proc_extension_tb.v
+FC:/Users/wulim/Desktop/2072 X72 PROJECT/proc_extension_tb.v
+Z15 L0 11
+R6
+r1
+!s85 0
+31
+R14
+!s107 C:/Users/wulim/Desktop/2072 X72 PROJECT/proc_extension_tb.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/wulim/Desktop/2072 X72 PROJECT|C:/Users/wulim/Desktop/2072 X72 PROJECT/proc_extension_tb.v|
+!i113 1
+R10
+R11
+R12
+vregister_n
+R1
+!i10b 1
+!s100 kQ=>OQ;PL9YEEK5Pi3XfV2
+IC0>h5`nL:@Co7PhHMbS?Q1
+R2
+R0
+R3
+R4
+R5
+L0 163
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+R12
+vsign_extend
+R1
+!i10b 1
+!s100 WgKTaL4LeRhdicK70djfj1
+I9c=_HXe<U:A`m@V7CPOEJ2
+R2
+R0
+R3
+R4
+R5
+R15
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+R12
+vsimple_proc
+R13
+!i10b 1
+!s100 _?lRlfLH8F@_6U=QlW9WZ0
+Ibm>Jz`Oagn?U00On4Ee513
+R2
+R0
+w1761025471
+8C:/Users/wulim/Desktop/2072 X72 PROJECT/proc_extension.v
+FC:/Users/wulim/Desktop/2072 X72 PROJECT/proc_extension.v
+L0 9
+R6
+r1
+!s85 0
+31
+R14
+!s107 C:/Users/wulim/Desktop/2072 X72 PROJECT/proc_extension.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/wulim/Desktop/2072 X72 PROJECT|C:/Users/wulim/Desktop/2072 X72 PROJECT/proc_extension.v|
+!i113 1
+R10
+R11
+R12
+vtick_FSM
+R1
+!i10b 1
+!s100 @fc2Y5oo<A3?f5Xn=TgGM1
+I2d4b4WIQDmaQYeooiF9KQ1
+R2
+R0
+R3
+R4
+R5
+L0 40
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+R12
+ntick_@f@s@m

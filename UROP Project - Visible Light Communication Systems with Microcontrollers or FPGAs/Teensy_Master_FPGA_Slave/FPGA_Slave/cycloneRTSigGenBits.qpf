@@ -1,0 +1,6 @@
+DATE = "11:30:26 April 04, 2023"
+QUARTUS_VERSION = "14.0"
+
+# Revisions
+
+PROJECT_REVISION = "cycloneRTSigGenBits"

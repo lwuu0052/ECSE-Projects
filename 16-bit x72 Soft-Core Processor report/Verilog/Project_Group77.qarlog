@@ -1,0 +1,35 @@
+Quartus Prime Archive log --	C:/Users/wulim/Desktop/2072 X72 PROJECT/Project_Group77.qarlog
+
+Archive:	C:/Users/wulim/Desktop/2072 X72 PROJECT/Project_Group77.qar
+Date:		Tue Oct 21 23:28:59 2025
+Quartus Prime		18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+	=========== Files Selected: ===========
+C:/Users/wulim/Desktop/2072 X72 PROJECT/BCD.v
+C:/Users/wulim/Desktop/2072 X72 PROJECT/BCD_decoder.v
+C:/Users/wulim/Desktop/2072 X72 PROJECT/BCD_sign.v
+C:/Users/wulim/Desktop/2072 X72 PROJECT/Project_Group77.qpf
+C:/Users/wulim/Desktop/2072 X72 PROJECT/Project_Group77.qsf
+C:/Users/wulim/Desktop/2072 X72 PROJECT/ROM.v
+C:/Users/wulim/Desktop/2072 X72 PROJECT/components.v
+C:/Users/wulim/Desktop/2072 X72 PROJECT/components_tb.v
+C:/Users/wulim/Desktop/2072 X72 PROJECT/proc.v
+C:/Users/wulim/Desktop/2072 X72 PROJECT/proc_extension.v
+C:/Users/wulim/Desktop/2072 X72 PROJECT/proc_extension_tb.v
+C:/Users/wulim/Desktop/2072 X72 PROJECT/proc_extension_top_level.v
+C:/Users/wulim/Desktop/2072 X72 PROJECT/proc_memory.v
+C:/Users/wulim/Desktop/2072 X72 PROJECT/proc_memory_top_level.v
+C:/Users/wulim/Desktop/2072 X72 PROJECT/proc_tb.v
+C:/Users/wulim/Desktop/2072 X72 PROJECT/proc_top_level.v
+C:/Users/wulim/Desktop/2072 X72 PROJECT/processor_memory.mif
+c:/intelfpga_lite/18.1/quartus/bin64/assignment_defaults.qdf
+	======= Total: 18 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
+
+
+******* Archived project restoration attempt on Tue Oct 21 23:29:11 2025
+Source archive file:	C:/Users/wulim/Desktop/2072 X72 PROJECT/Project_Group77.qar
+Archive was extracted into	C:/Users/wulim/Desktop/2072 X72 PROJECT/Project_Group77_restored/
+		 - successfully.

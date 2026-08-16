@@ -1,0 +1,48 @@
+module BCD_decoder(
+    input  [15:0] display,          
+    output [7:0] HEX0, HEX1, HEX2, HEX3, HEX4  
+);
+
+    reg [3:0] D0, D1, D2, D3, D4;
+    integer i;
+	 wire sign;
+    // register (20 bits = 16 bit binary + 4 BCD digits)
+    reg [35:0] shift_reg;
+	 assign sign = display[15];  
+    always @(*) begin
+        // Initialize shift register
+        shift_reg = 36'd0;
+        shift_reg[15:0] = display;
+
+        // Perform Double Dabble (16 shifts)
+        for (i = 0; i < 16; i = i + 1) begin
+            // Check each BCD digit, add 3 if >=5
+            if (shift_reg[19:16] >= 4'd5)
+					 shift_reg[19:16] = shift_reg[19:16] + 4'd3;
+				if (shift_reg[23:20] >= 4'd5)
+					 shift_reg[23:20] = shift_reg[23:20] + 4'd3;
+				if (shift_reg[27:24] >= 4'd5)
+					 shift_reg[27:24] = shift_reg[27:24] + 4'd3;
+				if (shift_reg[31:28] >= 4'd5)
+					 shift_reg[31:28] = shift_reg[31:28] + 4'd3;
+				if (shift_reg[35:32] >= 4'd5)
+					 shift_reg[35:32] = shift_reg[35:32] + 4'd3;
+            shift_reg = shift_reg << 1;
+        end
+
+        // Assign the final BCD digits
+        D4 = shift_reg[35:32];  // Ten-thousands
+        D3 = shift_reg[31:28];  // Thousands
+        D2 = shift_reg[27:24];  // Hundreds
+        D1 = shift_reg[23:20];  // Tens
+        D0 = shift_reg[19:16];  // Ones
+    end
+
+    
+    BCD_sign BCD0 (.data(D0), .sign(sign), .X(HEX0));
+    BCD_sign BCD1 (.data(D1), .sign(sign), .X(HEX1));
+    BCD_sign BCD2 (.data(D2), .sign(sign), .X(HEX2));
+    BCD_sign BCD3 (.data(D3), .sign(sign), .X(HEX3));
+    BCD_sign BCD4 (.data(D4), .sign(sign), .X(HEX4));
+
+endmodule

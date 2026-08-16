@@ -1,0 +1,1247 @@
+Timing Analyzer report for FPGA_Master
+Thu Jul 16 23:13:03 2026
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow 1200mV 85C Model Fmax Summary
+  6. Timing Closure Recommendations
+  7. Slow 1200mV 85C Model Setup Summary
+  8. Slow 1200mV 85C Model Hold Summary
+  9. Slow 1200mV 85C Model Recovery Summary
+ 10. Slow 1200mV 85C Model Removal Summary
+ 11. Slow 1200mV 85C Model Minimum Pulse Width Summary
+ 12. Slow 1200mV 85C Model Setup: 'CLOCK_50'
+ 13. Slow 1200mV 85C Model Hold: 'CLOCK_50'
+ 14. Slow 1200mV 85C Model Metastability Summary
+ 15. Slow 1200mV 0C Model Fmax Summary
+ 16. Slow 1200mV 0C Model Setup Summary
+ 17. Slow 1200mV 0C Model Hold Summary
+ 18. Slow 1200mV 0C Model Recovery Summary
+ 19. Slow 1200mV 0C Model Removal Summary
+ 20. Slow 1200mV 0C Model Minimum Pulse Width Summary
+ 21. Slow 1200mV 0C Model Setup: 'CLOCK_50'
+ 22. Slow 1200mV 0C Model Hold: 'CLOCK_50'
+ 23. Slow 1200mV 0C Model Metastability Summary
+ 24. Fast 1200mV 0C Model Setup Summary
+ 25. Fast 1200mV 0C Model Hold Summary
+ 26. Fast 1200mV 0C Model Recovery Summary
+ 27. Fast 1200mV 0C Model Removal Summary
+ 28. Fast 1200mV 0C Model Minimum Pulse Width Summary
+ 29. Fast 1200mV 0C Model Setup: 'CLOCK_50'
+ 30. Fast 1200mV 0C Model Hold: 'CLOCK_50'
+ 31. Fast 1200mV 0C Model Metastability Summary
+ 32. Multicorner Timing Analysis Summary
+ 33. Board Trace Model Assignments
+ 34. Input Transition Times
+ 35. Signal Integrity Metrics (Slow 1200mv 0c Model)
+ 36. Signal Integrity Metrics (Slow 1200mv 85c Model)
+ 37. Signal Integrity Metrics (Fast 1200mv 0c Model)
+ 38. Setup Transfers
+ 39. Hold Transfers
+ 40. Report TCCS
+ 41. Report RSKM
+ 42. Unconstrained Paths Summary
+ 43. Clock Status Summary
+ 44. Unconstrained Input Ports
+ 45. Unconstrained Output Ports
+ 46. Unconstrained Input Ports
+ 47. Unconstrained Output Ports
+ 48. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                     ;
++-----------------------+-----------------------------------------------------+
+; Quartus Prime Version ; Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Timing Analyzer       ; Legacy Timing Analyzer                              ;
+; Revision Name         ; FPGA_Master                                         ;
+; Device Family         ; Cyclone IV E                                        ;
+; Device Name           ; EP4CE115F29C7                                       ;
+; Timing Models         ; Final                                               ;
+; Delay Model           ; Combined                                            ;
+; Rise/Fall Delays      ; Enabled                                             ;
++-----------------------+-----------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 8           ;
+;                            ;             ;
+; Average used               ; 1.03        ;
+; Maximum used               ; 8           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-8         ;   0.4%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                               ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets      ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+; CLOCK_50   ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { CLOCK_50 } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+
+
++--------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary               ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 248.39 MHz ; 248.39 MHz      ; CLOCK_50   ;      ;
++------------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
+----------------------------------
+; Timing Closure Recommendations ;
+----------------------------------
+HTML report is unavailable in plain text report export.
+
+
++-------------------------------------+
+; Slow 1200mV 85C Model Setup Summary ;
++----------+--------+-----------------+
+; Clock    ; Slack  ; End Point TNS   ;
++----------+--------+-----------------+
+; CLOCK_50 ; -3.026 ; -215.957        ;
++----------+--------+-----------------+
+
+
++------------------------------------+
+; Slow 1200mV 85C Model Hold Summary ;
++----------+-------+-----------------+
+; Clock    ; Slack ; End Point TNS   ;
++----------+-------+-----------------+
+; CLOCK_50 ; 0.403 ; 0.000           ;
++----------+-------+-----------------+
+
+
+------------------------------------------
+; Slow 1200mV 85C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Slow 1200mV 85C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++---------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width Summary ;
++----------+--------+-------------------------------+
+; Clock    ; Slack  ; End Point TNS                 ;
++----------+--------+-------------------------------+
+; CLOCK_50 ; -3.000 ; -157.200                      ;
++----------+--------+-------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'CLOCK_50'                                                                                                                                                  ;
++--------+-------------------------------------------------------+---------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                             ; To Node                                           ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------------------------------------+---------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -3.026 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[7]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.058     ; 3.966      ;
+; -3.017 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 3.956      ;
+; -2.998 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[2]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.058     ; 3.938      ;
+; -2.996 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[14] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 3.935      ;
+; -2.921 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[3]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.058     ; 3.861      ;
+; -2.918 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.100     ; 3.816      ;
+; -2.918 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.100     ; 3.816      ;
+; -2.901 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.100     ; 3.799      ;
+; -2.901 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.100     ; 3.799      ;
+; -2.900 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]        ; FPGA_MST_SPI_Master:spi_master_inst|mosi          ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.079     ; 3.819      ;
+; -2.892 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[5]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.099     ; 3.791      ;
+; -2.887 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[5]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.078     ; 3.807      ;
+; -2.883 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[7]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.058     ; 3.823      ;
+; -2.875 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[5]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.099     ; 3.774      ;
+; -2.874 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 3.813      ;
+; -2.855 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[2]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.058     ; 3.795      ;
+; -2.853 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[14] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 3.792      ;
+; -2.852 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.079     ; 3.771      ;
+; -2.852 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.079     ; 3.771      ;
+; -2.832 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[5]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.078     ; 3.752      ;
+; -2.827 ; FPGA_MST_SPI_Master:spi_master_inst|sck               ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[5]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.098     ; 3.727      ;
+; -2.810 ; FPGA_MST_SPI_Master:spi_master_inst|delay_cnt[3]      ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.101     ; 3.707      ;
+; -2.810 ; FPGA_MST_SPI_Master:spi_master_inst|delay_cnt[3]      ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.101     ; 3.707      ;
+; -2.801 ; FPGA_MST_SPI_Master:spi_master_inst|delay_cnt[1]      ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.101     ; 3.698      ;
+; -2.801 ; FPGA_MST_SPI_Master:spi_master_inst|delay_cnt[1]      ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.101     ; 3.698      ;
+; -2.794 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[14] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.080     ; 3.712      ;
+; -2.794 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.080     ; 3.712      ;
+; -2.794 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.080     ; 3.712      ;
+; -2.794 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.080     ; 3.712      ;
+; -2.794 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[6]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.080     ; 3.712      ;
+; -2.794 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[4]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.080     ; 3.712      ;
+; -2.794 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.080     ; 3.712      ;
+; -2.794 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[8]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.080     ; 3.712      ;
+; -2.793 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.079     ; 3.712      ;
+; -2.793 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.079     ; 3.712      ;
+; -2.777 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[14] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.080     ; 3.695      ;
+; -2.777 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.080     ; 3.695      ;
+; -2.777 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.080     ; 3.695      ;
+; -2.777 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.080     ; 3.695      ;
+; -2.777 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[6]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.080     ; 3.695      ;
+; -2.777 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[4]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.080     ; 3.695      ;
+; -2.777 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.080     ; 3.695      ;
+; -2.777 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[8]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.080     ; 3.695      ;
+; -2.770 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]       ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.058     ; 3.710      ;
+; -2.768 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[14] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 3.707      ;
+; -2.768 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 3.707      ;
+; -2.768 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 3.707      ;
+; -2.768 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 3.707      ;
+; -2.768 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[6]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 3.707      ;
+; -2.768 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[4]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 3.707      ;
+; -2.768 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 3.707      ;
+; -2.768 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[8]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 3.707      ;
+; -2.757 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[10] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.058     ; 3.697      ;
+; -2.740 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 3.679      ;
+; -2.739 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 3.678      ;
+; -2.738 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.079     ; 3.657      ;
+; -2.738 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.079     ; 3.657      ;
+; -2.731 ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[0] ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[7]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.058     ; 3.671      ;
+; -2.729 ; FPGA_MST_SPI_Master:spi_master_inst|sck               ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[14] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.079     ; 3.648      ;
+; -2.729 ; FPGA_MST_SPI_Master:spi_master_inst|sck               ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.079     ; 3.648      ;
+; -2.729 ; FPGA_MST_SPI_Master:spi_master_inst|sck               ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.079     ; 3.648      ;
+; -2.729 ; FPGA_MST_SPI_Master:spi_master_inst|sck               ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.079     ; 3.648      ;
+; -2.729 ; FPGA_MST_SPI_Master:spi_master_inst|sck               ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[6]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.079     ; 3.648      ;
+; -2.729 ; FPGA_MST_SPI_Master:spi_master_inst|sck               ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[4]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.079     ; 3.648      ;
+; -2.729 ; FPGA_MST_SPI_Master:spi_master_inst|sck               ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.079     ; 3.648      ;
+; -2.729 ; FPGA_MST_SPI_Master:spi_master_inst|sck               ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[8]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.079     ; 3.648      ;
+; -2.723 ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[0] ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 3.662      ;
+; -2.723 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[2]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.100     ; 3.621      ;
+; -2.723 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[2]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.100     ; 3.621      ;
+; -2.718 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[2]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[3]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.058     ; 3.658      ;
+; -2.715 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.058     ; 3.655      ;
+; -2.713 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[6]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 3.652      ;
+; -2.713 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[4]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 3.652      ;
+; -2.713 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 3.652      ;
+; -2.713 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[8]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 3.652      ;
+; -2.704 ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[0] ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[2]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.058     ; 3.644      ;
+; -2.702 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[5]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.078     ; 3.622      ;
+; -2.697 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[2]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[5]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.099     ; 3.596      ;
+; -2.675 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 3.614      ;
+; -2.664 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[3]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.058     ; 3.604      ;
+; -2.656 ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[2]      ; FPGA_MST_SPI_Master:spi_master_inst|mosi          ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.079     ; 3.575      ;
+; -2.645 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_SEND     ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.078     ; 3.565      ;
+; -2.644 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[2]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[7]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.058     ; 3.584      ;
+; -2.635 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[2]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 3.574      ;
+; -2.617 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[2]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[2]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.058     ; 3.557      ;
+; -2.616 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[0]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.100     ; 3.514      ;
+; -2.616 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[0]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.100     ; 3.514      ;
+; -2.614 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[2]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[14] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 3.553      ;
+; -2.604 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 3.543      ;
+; -2.604 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[6]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 3.543      ;
+; -2.604 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[4]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 3.543      ;
+; -2.604 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 3.543      ;
+; -2.604 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[8]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 3.543      ;
+; -2.602 ; FPGA_MST_SPI_Master:spi_master_inst|delay_cnt[2]      ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.101     ; 3.499      ;
+; -2.602 ; FPGA_MST_SPI_Master:spi_master_inst|delay_cnt[2]      ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.101     ; 3.499      ;
+; -2.599 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[2]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[14] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.080     ; 3.517      ;
+; -2.599 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[2]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.080     ; 3.517      ;
+; -2.599 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[2]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.080     ; 3.517      ;
+; -2.599 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[2]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.080     ; 3.517      ;
+; -2.599 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[2]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[6]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.080     ; 3.517      ;
++--------+-------------------------------------------------------+---------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'CLOCK_50'                                                                                                                                                         ;
++-------+--------------------------------------------------------+---------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                              ; To Node                                                 ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------------------------------------------------+---------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.403 ; FPGA_MST_SPI_Master:spi_master_inst|cs                 ; FPGA_MST_SPI_Master:spi_master_inst|cs                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 0.669      ;
+; 0.403 ; FPGA_MST_SPI_Master:spi_master_inst|sck_en             ; FPGA_MST_SPI_Master:spi_master_inst|sck_en              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 0.669      ;
+; 0.403 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[4]         ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[4]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 0.669      ;
+; 0.403 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_CS_HIGH   ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_CS_HIGH    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 0.669      ;
+; 0.403 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_CS_LOW    ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_CS_LOW     ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 0.669      ;
+; 0.403 ; FPGA_MST_SPI_Master:spi_master_inst|delay_cnt[1]       ; FPGA_MST_SPI_Master:spi_master_inst|delay_cnt[1]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 0.669      ;
+; 0.403 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_IDLE      ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_IDLE       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 0.669      ;
+; 0.403 ; busy                                                   ; busy                                                    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 0.669      ;
+; 0.403 ; key1_armed                                             ; key1_armed                                              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 0.669      ;
+; 0.403 ; FPGA_MST_SPI_Master:spi_master_inst|done               ; FPGA_MST_SPI_Master:spi_master_inst|done                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 0.669      ;
+; 0.404 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[2]         ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[2]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.079      ; 0.669      ;
+; 0.404 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]         ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.079      ; 0.669      ;
+; 0.404 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]         ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.079      ; 0.669      ;
+; 0.404 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[0]         ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[0]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.079      ; 0.669      ;
+; 0.404 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]        ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.079      ; 0.669      ;
+; 0.404 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]        ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.079      ; 0.669      ;
+; 0.404 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]        ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.079      ; 0.669      ;
+; 0.404 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[2]        ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[2]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.079      ; 0.669      ;
+; 0.405 ; packet_id[0]                                           ; packet_id[0]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 0.669      ;
+; 0.408 ; FPGA_MST_SPI_Master:spi_master_inst|delay_cnt[0]       ; FPGA_MST_SPI_Master:spi_master_inst|delay_cnt[0]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 0.674      ;
+; 0.429 ; key1_meta                                              ; key1_sync                                               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 0.695      ;
+; 0.438 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[8]         ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[8]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 0.702      ;
+; 0.444 ; packet_id[15]                                          ; packet_id[15]                                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 0.708      ;
+; 0.452 ; key1_sync                                              ; start_sig                                               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 0.718      ;
+; 0.452 ; key1_sync                                              ; busy                                                    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 0.718      ;
+; 0.454 ; key1_sync                                              ; key1_armed                                              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 0.720      ;
+; 0.645 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[1]         ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[1]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 0.909      ;
+; 0.645 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[3]         ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[3]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 0.909      ;
+; 0.647 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[4]         ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[4]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 0.911      ;
+; 0.648 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[5]         ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[5]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 0.912      ;
+; 0.648 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[7]         ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[7]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 0.912      ;
+; 0.650 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[2]         ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[2]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 0.914      ;
+; 0.651 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[6]         ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[6]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 0.915      ;
+; 0.658 ; packet_id[14]                                          ; packet_id[14]                                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 0.922      ;
+; 0.658 ; packet_id[6]                                           ; packet_id[6]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 0.922      ;
+; 0.658 ; packet_id[4]                                           ; packet_id[4]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 0.922      ;
+; 0.659 ; packet_id[12]                                          ; packet_id[12]                                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 0.923      ;
+; 0.659 ; packet_id[2]                                           ; packet_id[2]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 0.923      ;
+; 0.661 ; packet_id[10]                                          ; packet_id[10]                                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 0.925      ;
+; 0.661 ; packet_id[8]                                           ; packet_id[8]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 0.925      ;
+; 0.661 ; packet_id[7]                                           ; packet_id[7]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 0.925      ;
+; 0.663 ; packet_id[3]                                           ; packet_id[3]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 0.927      ;
+; 0.664 ; packet_id[13]                                          ; packet_id[13]                                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 0.928      ;
+; 0.664 ; packet_id[11]                                          ; packet_id[11]                                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 0.928      ;
+; 0.664 ; packet_id[9]                                           ; packet_id[9]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 0.928      ;
+; 0.664 ; packet_id[5]                                           ; packet_id[5]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 0.928      ;
+; 0.673 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[0]         ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[0]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 0.937      ;
+; 0.673 ; busy                                                   ; start_sig                                               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 0.939      ;
+; 0.676 ; packet_id[1]                                           ; packet_id[1]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 0.940      ;
+; 0.679 ; key1_armed                                             ; start_sig                                               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 0.945      ;
+; 0.681 ; packet_id[0]                                           ; packet_id[1]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 0.945      ;
+; 0.684 ; busy                                                   ; key1_armed                                              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 0.950      ;
+; 0.685 ; key1_armed                                             ; busy                                                    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 0.951      ;
+; 0.688 ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[0]  ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[5]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 0.952      ;
+; 0.689 ; FPGA_MST_SPI_Master:spi_master_inst|done               ; busy                                                    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 0.955      ;
+; 0.694 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_IDLE      ; FPGA_MST_SPI_Master:spi_master_inst|done                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 0.960      ;
+; 0.699 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_IDLE      ; FPGA_MST_SPI_Master:spi_master_inst|cs                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 0.965      ;
+; 0.705 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_DONE      ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_SEND       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 0.971      ;
+; 0.732 ; FPGA_MST_SPI_Master:spi_master_inst|sck_en             ; FPGA_MST_SPI_Master:spi_master_inst|sck                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 0.998      ;
+; 0.742 ; packet_id[4]                                           ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[100] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.079      ; 1.007      ;
+; 0.742 ; start_sig                                              ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_IDLE       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 1.008      ;
+; 0.744 ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[69] ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[5]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 1.008      ;
+; 0.746 ; packet_id[4]                                           ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[68]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.079      ; 1.011      ;
+; 0.823 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_LOAD      ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_IDLE       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.079      ; 1.088      ;
+; 0.832 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_LOAD      ; FPGA_MST_SPI_Master:spi_master_inst|sck_en              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 1.098      ;
+; 0.851 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_SEND      ; FPGA_MST_SPI_Master:spi_master_inst|sck_en              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 1.117      ;
+; 0.886 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[0]         ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.079      ; 1.151      ;
+; 0.893 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_LOAD      ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_SEND       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 1.159      ;
+; 0.908 ; packet_id[6]                                           ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[102] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.087      ; 1.181      ;
+; 0.914 ; packet_id[6]                                           ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[70]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.087      ; 1.187      ;
+; 0.927 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_IDLE      ; FPGA_MST_SPI_Master:spi_master_inst|delay_cnt[2]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.083      ; 1.196      ;
+; 0.928 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_IDLE      ; FPGA_MST_SPI_Master:spi_master_inst|delay_cnt[1]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.083      ; 1.197      ;
+; 0.932 ; packet_id[8]                                           ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[104] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.087      ; 1.205      ;
+; 0.939 ; packet_id[13]                                          ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[109] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.087      ; 1.212      ;
+; 0.939 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_LOAD      ; FPGA_MST_SPI_Master:spi_master_inst|cs                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.079      ; 1.204      ;
+; 0.946 ; packet_id[14]                                          ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[110] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.081      ; 1.213      ;
+; 0.947 ; packet_id[12]                                          ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[108] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 1.213      ;
+; 0.949 ; packet_id[13]                                          ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[77]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.087      ; 1.222      ;
+; 0.955 ; packet_id[3]                                           ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[99]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.081      ; 1.222      ;
+; 0.956 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_SEND      ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[11]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 1.222      ;
+; 0.958 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_SEND      ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[14]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 1.224      ;
+; 0.958 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_SEND      ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[9]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 1.224      ;
+; 0.959 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_SEND      ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[12]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 1.225      ;
+; 0.963 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[3]         ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[4]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 1.227      ;
+; 0.963 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[1]         ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[2]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 1.227      ;
+; 0.965 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[7]         ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[8]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 1.229      ;
+; 0.965 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[5]         ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[6]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 1.229      ;
+; 0.971 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_SEND      ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[6]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 1.237      ;
+; 0.971 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_SEND      ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[4]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 1.237      ;
+; 0.971 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_SEND      ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[13]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 1.237      ;
+; 0.971 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_SEND      ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[8]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 1.237      ;
+; 0.971 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_SEND      ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[1]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 1.237      ;
+; 0.974 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[4]         ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[5]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 1.238      ;
+; 0.976 ; packet_id[14]                                          ; packet_id[15]                                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 1.240      ;
+; 0.976 ; packet_id[6]                                           ; packet_id[7]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 1.240      ;
+; 0.976 ; packet_id[2]                                           ; packet_id[3]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 1.240      ;
+; 0.976 ; packet_id[4]                                           ; packet_id[5]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 1.240      ;
+; 0.977 ; packet_id[12]                                          ; packet_id[13]                                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 1.241      ;
+; 0.977 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[0]         ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[1]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 1.241      ;
+; 0.977 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[2]         ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[3]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.078      ; 1.241      ;
++-------+--------------------------------------------------------+---------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
+-----------------------------------------------
+; Slow 1200mV 85C Model Metastability Summary ;
+-----------------------------------------------
+Design MTBF is not calculated because the design doesn't meet its timing requirements.
+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                                                                         ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; 270.78 MHz ; 250.0 MHz       ; CLOCK_50   ; limit due to minimum period restriction (max I/O toggle rate) ;
++------------+-----------------+------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++------------------------------------+
+; Slow 1200mV 0C Model Setup Summary ;
++----------+--------+----------------+
+; Clock    ; Slack  ; End Point TNS  ;
++----------+--------+----------------+
+; CLOCK_50 ; -2.693 ; -186.480       ;
++----------+--------+----------------+
+
+
++-----------------------------------+
+; Slow 1200mV 0C Model Hold Summary ;
++----------+-------+----------------+
+; Clock    ; Slack ; End Point TNS  ;
++----------+-------+----------------+
+; CLOCK_50 ; 0.355 ; 0.000          ;
++----------+-------+----------------+
+
+
+-----------------------------------------
+; Slow 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Slow 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width Summary ;
++----------+--------+------------------------------+
+; Clock    ; Slack  ; End Point TNS                ;
++----------+--------+------------------------------+
+; CLOCK_50 ; -3.000 ; -157.200                     ;
++----------+--------+------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'CLOCK_50'                                                                                                                                                   ;
++--------+-------------------------------------------------------+---------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                             ; To Node                                           ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------------------------------------+---------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -2.693 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[7]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.049     ; 3.643      ;
+; -2.687 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.050     ; 3.636      ;
+; -2.670 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[14] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.050     ; 3.619      ;
+; -2.668 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[2]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.049     ; 3.618      ;
+; -2.610 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.092     ; 3.517      ;
+; -2.610 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.092     ; 3.517      ;
+; -2.593 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.092     ; 3.500      ;
+; -2.593 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.092     ; 3.500      ;
+; -2.589 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[5]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.091     ; 3.497      ;
+; -2.572 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[5]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.091     ; 3.480      ;
+; -2.570 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[7]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.049     ; 3.520      ;
+; -2.564 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.050     ; 3.513      ;
+; -2.549 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[3]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.049     ; 3.499      ;
+; -2.547 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[14] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.050     ; 3.496      ;
+; -2.545 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[2]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.049     ; 3.495      ;
+; -2.544 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[5]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.069     ; 3.474      ;
+; -2.537 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.070     ; 3.466      ;
+; -2.537 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.070     ; 3.466      ;
+; -2.529 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]        ; FPGA_MST_SPI_Master:spi_master_inst|mosi          ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.071     ; 3.457      ;
+; -2.529 ; FPGA_MST_SPI_Master:spi_master_inst|sck               ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[5]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.089     ; 3.439      ;
+; -2.506 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[14] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.072     ; 3.433      ;
+; -2.506 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.072     ; 3.433      ;
+; -2.506 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.072     ; 3.433      ;
+; -2.506 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.072     ; 3.433      ;
+; -2.506 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[6]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.072     ; 3.433      ;
+; -2.506 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[4]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.072     ; 3.433      ;
+; -2.506 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.072     ; 3.433      ;
+; -2.506 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[8]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.072     ; 3.433      ;
+; -2.493 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[5]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.069     ; 3.423      ;
+; -2.489 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[14] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.072     ; 3.416      ;
+; -2.489 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.072     ; 3.416      ;
+; -2.489 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.072     ; 3.416      ;
+; -2.489 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.072     ; 3.416      ;
+; -2.489 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[6]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.072     ; 3.416      ;
+; -2.489 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[4]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.072     ; 3.416      ;
+; -2.489 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.072     ; 3.416      ;
+; -2.489 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[8]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.072     ; 3.416      ;
+; -2.472 ; FPGA_MST_SPI_Master:spi_master_inst|delay_cnt[3]      ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.092     ; 3.379      ;
+; -2.472 ; FPGA_MST_SPI_Master:spi_master_inst|delay_cnt[3]      ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.092     ; 3.379      ;
+; -2.465 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.070     ; 3.394      ;
+; -2.465 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.070     ; 3.394      ;
+; -2.464 ; FPGA_MST_SPI_Master:spi_master_inst|delay_cnt[1]      ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.092     ; 3.371      ;
+; -2.464 ; FPGA_MST_SPI_Master:spi_master_inst|delay_cnt[1]      ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.092     ; 3.371      ;
+; -2.458 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]       ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.049     ; 3.408      ;
+; -2.446 ; FPGA_MST_SPI_Master:spi_master_inst|sck               ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[14] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.070     ; 3.375      ;
+; -2.446 ; FPGA_MST_SPI_Master:spi_master_inst|sck               ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.070     ; 3.375      ;
+; -2.446 ; FPGA_MST_SPI_Master:spi_master_inst|sck               ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.070     ; 3.375      ;
+; -2.446 ; FPGA_MST_SPI_Master:spi_master_inst|sck               ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.070     ; 3.375      ;
+; -2.446 ; FPGA_MST_SPI_Master:spi_master_inst|sck               ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[6]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.070     ; 3.375      ;
+; -2.446 ; FPGA_MST_SPI_Master:spi_master_inst|sck               ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[4]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.070     ; 3.375      ;
+; -2.446 ; FPGA_MST_SPI_Master:spi_master_inst|sck               ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.070     ; 3.375      ;
+; -2.446 ; FPGA_MST_SPI_Master:spi_master_inst|sck               ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[8]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.070     ; 3.375      ;
+; -2.443 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[2]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.092     ; 3.350      ;
+; -2.443 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[2]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.092     ; 3.350      ;
+; -2.434 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[14] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.050     ; 3.383      ;
+; -2.434 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.050     ; 3.383      ;
+; -2.434 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.050     ; 3.383      ;
+; -2.434 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.050     ; 3.383      ;
+; -2.434 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[6]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.050     ; 3.383      ;
+; -2.434 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[4]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.050     ; 3.383      ;
+; -2.434 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.050     ; 3.383      ;
+; -2.434 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[8]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.050     ; 3.383      ;
+; -2.422 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[2]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[5]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.091     ; 3.330      ;
+; -2.417 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[10] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.049     ; 3.367      ;
+; -2.407 ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[0] ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[7]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.050     ; 3.356      ;
+; -2.407 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.070     ; 3.336      ;
+; -2.407 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.070     ; 3.336      ;
+; -2.407 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.049     ; 3.357      ;
+; -2.406 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.050     ; 3.355      ;
+; -2.400 ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[0] ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.051     ; 3.348      ;
+; -2.396 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.050     ; 3.345      ;
+; -2.383 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[6]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.050     ; 3.332      ;
+; -2.383 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[4]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.050     ; 3.332      ;
+; -2.383 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.050     ; 3.332      ;
+; -2.383 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[8]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.050     ; 3.332      ;
+; -2.381 ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[0] ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[2]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.050     ; 3.330      ;
+; -2.378 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[5]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.069     ; 3.308      ;
+; -2.375 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.050     ; 3.324      ;
+; -2.370 ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[2]      ; FPGA_MST_SPI_Master:spi_master_inst|mosi          ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.071     ; 3.298      ;
+; -2.367 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[2]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[3]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.049     ; 3.317      ;
+; -2.354 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[2]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[7]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.049     ; 3.304      ;
+; -2.351 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[3]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.049     ; 3.301      ;
+; -2.348 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[2]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.050     ; 3.297      ;
+; -2.342 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[0]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.092     ; 3.249      ;
+; -2.342 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[0]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.092     ; 3.249      ;
+; -2.339 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[2]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[14] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.072     ; 3.266      ;
+; -2.339 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[2]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.072     ; 3.266      ;
+; -2.339 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[2]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.072     ; 3.266      ;
+; -2.339 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[2]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.072     ; 3.266      ;
+; -2.339 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[2]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[6]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.072     ; 3.266      ;
+; -2.339 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[2]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[4]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.072     ; 3.266      ;
+; -2.339 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[2]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.072     ; 3.266      ;
+; -2.339 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[2]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[8]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.072     ; 3.266      ;
+; -2.331 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[2]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[14] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.050     ; 3.280      ;
+; -2.329 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[2]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[2]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.049     ; 3.279      ;
+; -2.321 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[0]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[5]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.091     ; 3.229      ;
+; -2.311 ; FPGA_MST_SPI_Master:spi_master_inst|delay_cnt[2]      ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.092     ; 3.218      ;
+; -2.311 ; FPGA_MST_SPI_Master:spi_master_inst|delay_cnt[2]      ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.092     ; 3.218      ;
+; -2.298 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_SEND     ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.069     ; 3.228      ;
+; -2.295 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.050     ; 3.244      ;
++--------+-------------------------------------------------------+---------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'CLOCK_50'                                                                                                                                                          ;
++-------+--------------------------------------------------------+---------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                              ; To Node                                                 ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------------------------------------------------+---------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.355 ; FPGA_MST_SPI_Master:spi_master_inst|cs                 ; FPGA_MST_SPI_Master:spi_master_inst|cs                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.071      ; 0.597      ;
+; 0.355 ; FPGA_MST_SPI_Master:spi_master_inst|sck_en             ; FPGA_MST_SPI_Master:spi_master_inst|sck_en              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.071      ; 0.597      ;
+; 0.355 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[2]         ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[2]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.071      ; 0.597      ;
+; 0.355 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]         ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.071      ; 0.597      ;
+; 0.355 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]         ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.071      ; 0.597      ;
+; 0.355 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[0]         ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[0]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.071      ; 0.597      ;
+; 0.355 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[4]         ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[4]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.071      ; 0.597      ;
+; 0.355 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_CS_HIGH   ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_CS_HIGH    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.071      ; 0.597      ;
+; 0.355 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_CS_LOW    ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_CS_LOW     ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.071      ; 0.597      ;
+; 0.355 ; FPGA_MST_SPI_Master:spi_master_inst|delay_cnt[1]       ; FPGA_MST_SPI_Master:spi_master_inst|delay_cnt[1]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.071      ; 0.597      ;
+; 0.355 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_IDLE      ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_IDLE       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.071      ; 0.597      ;
+; 0.355 ; busy                                                   ; busy                                                    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.071      ; 0.597      ;
+; 0.355 ; key1_armed                                             ; key1_armed                                              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.071      ; 0.597      ;
+; 0.355 ; FPGA_MST_SPI_Master:spi_master_inst|done               ; FPGA_MST_SPI_Master:spi_master_inst|done                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.071      ; 0.597      ;
+; 0.356 ; packet_id[0]                                           ; packet_id[0]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 0.597      ;
+; 0.356 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]        ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 0.597      ;
+; 0.356 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]        ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 0.597      ;
+; 0.356 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]        ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 0.597      ;
+; 0.356 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[2]        ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[2]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 0.597      ;
+; 0.366 ; FPGA_MST_SPI_Master:spi_master_inst|delay_cnt[0]       ; FPGA_MST_SPI_Master:spi_master_inst|delay_cnt[0]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.071      ; 0.608      ;
+; 0.396 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[8]         ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[8]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 0.637      ;
+; 0.397 ; key1_meta                                              ; key1_sync                                               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.071      ; 0.639      ;
+; 0.401 ; packet_id[15]                                          ; packet_id[15]                                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 0.642      ;
+; 0.417 ; key1_sync                                              ; start_sig                                               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.071      ; 0.659      ;
+; 0.417 ; key1_sync                                              ; busy                                                    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.071      ; 0.659      ;
+; 0.419 ; key1_sync                                              ; key1_armed                                              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.071      ; 0.661      ;
+; 0.589 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[3]         ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[3]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 0.830      ;
+; 0.590 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[1]         ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[1]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 0.831      ;
+; 0.591 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[4]         ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[4]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 0.832      ;
+; 0.593 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[5]         ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[5]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 0.834      ;
+; 0.593 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[7]         ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[7]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 0.834      ;
+; 0.594 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[2]         ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[2]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 0.835      ;
+; 0.595 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[6]         ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[6]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 0.836      ;
+; 0.601 ; packet_id[6]                                           ; packet_id[6]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 0.842      ;
+; 0.601 ; packet_id[4]                                           ; packet_id[4]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 0.842      ;
+; 0.602 ; packet_id[14]                                          ; packet_id[14]                                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 0.843      ;
+; 0.602 ; packet_id[12]                                          ; packet_id[12]                                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 0.843      ;
+; 0.603 ; packet_id[7]                                           ; packet_id[7]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 0.844      ;
+; 0.603 ; packet_id[2]                                           ; packet_id[2]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 0.844      ;
+; 0.605 ; packet_id[10]                                          ; packet_id[10]                                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 0.846      ;
+; 0.605 ; packet_id[8]                                           ; packet_id[8]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 0.846      ;
+; 0.606 ; packet_id[3]                                           ; packet_id[3]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 0.847      ;
+; 0.607 ; packet_id[13]                                          ; packet_id[13]                                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 0.848      ;
+; 0.607 ; packet_id[11]                                          ; packet_id[11]                                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 0.848      ;
+; 0.607 ; packet_id[9]                                           ; packet_id[9]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 0.848      ;
+; 0.607 ; packet_id[5]                                           ; packet_id[5]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 0.848      ;
+; 0.615 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[0]         ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[0]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 0.856      ;
+; 0.618 ; busy                                                   ; start_sig                                               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.071      ; 0.860      ;
+; 0.620 ; packet_id[1]                                           ; packet_id[1]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 0.861      ;
+; 0.620 ; key1_armed                                             ; start_sig                                               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.071      ; 0.862      ;
+; 0.624 ; key1_armed                                             ; busy                                                    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.071      ; 0.866      ;
+; 0.626 ; busy                                                   ; key1_armed                                              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.071      ; 0.868      ;
+; 0.626 ; packet_id[0]                                           ; packet_id[1]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 0.867      ;
+; 0.630 ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[0]  ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[5]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 0.871      ;
+; 0.631 ; FPGA_MST_SPI_Master:spi_master_inst|done               ; busy                                                    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.071      ; 0.873      ;
+; 0.637 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_IDLE      ; FPGA_MST_SPI_Master:spi_master_inst|done                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.071      ; 0.879      ;
+; 0.643 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_IDLE      ; FPGA_MST_SPI_Master:spi_master_inst|cs                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.071      ; 0.885      ;
+; 0.647 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_DONE      ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_SEND       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.071      ; 0.889      ;
+; 0.660 ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[69] ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[5]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 0.901      ;
+; 0.680 ; start_sig                                              ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_IDLE       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.071      ; 0.922      ;
+; 0.682 ; FPGA_MST_SPI_Master:spi_master_inst|sck_en             ; FPGA_MST_SPI_Master:spi_master_inst|sck                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.071      ; 0.924      ;
+; 0.685 ; packet_id[4]                                           ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[100] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.071      ; 0.927      ;
+; 0.694 ; packet_id[4]                                           ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[68]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.071      ; 0.936      ;
+; 0.744 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_LOAD      ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_IDLE       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 0.985      ;
+; 0.773 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_LOAD      ; FPGA_MST_SPI_Master:spi_master_inst|sck_en              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.071      ; 1.015      ;
+; 0.791 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_SEND      ; FPGA_MST_SPI_Master:spi_master_inst|sck_en              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.071      ; 1.033      ;
+; 0.820 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[0]         ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.071      ; 1.062      ;
+; 0.831 ; packet_id[6]                                           ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[70]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 1.082      ;
+; 0.831 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_LOAD      ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_SEND       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.071      ; 1.073      ;
+; 0.834 ; packet_id[6]                                           ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[102] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 1.085      ;
+; 0.835 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_LOAD      ; FPGA_MST_SPI_Master:spi_master_inst|cs                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 1.076      ;
+; 0.838 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_IDLE      ; FPGA_MST_SPI_Master:spi_master_inst|delay_cnt[2]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.074      ; 1.083      ;
+; 0.839 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_IDLE      ; FPGA_MST_SPI_Master:spi_master_inst|delay_cnt[1]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.074      ; 1.084      ;
+; 0.852 ; packet_id[8]                                           ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[104] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 1.103      ;
+; 0.857 ; packet_id[13]                                          ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[109] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 1.108      ;
+; 0.858 ; packet_id[13]                                          ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[77]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.080      ; 1.109      ;
+; 0.864 ; packet_id[14]                                          ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[110] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.072      ; 1.107      ;
+; 0.866 ; packet_id[12]                                          ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[108] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.071      ; 1.108      ;
+; 0.871 ; packet_id[3]                                           ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[99]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.072      ; 1.114      ;
+; 0.875 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[3]         ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[4]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 1.116      ;
+; 0.876 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[1]         ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[2]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 1.117      ;
+; 0.877 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_SEND      ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[11]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.072      ; 1.120      ;
+; 0.879 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_SEND      ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[14]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.072      ; 1.122      ;
+; 0.879 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_SEND      ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[12]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.072      ; 1.122      ;
+; 0.879 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_SEND      ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[9]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.072      ; 1.122      ;
+; 0.879 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[4]         ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[5]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 1.120      ;
+; 0.880 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[7]         ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[8]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 1.121      ;
+; 0.880 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[5]         ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[6]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 1.121      ;
+; 0.882 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[2]         ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[3]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 1.123      ;
+; 0.882 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[0]         ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[1]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 1.123      ;
+; 0.883 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[6]         ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[7]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 1.124      ;
+; 0.885 ; packet_id[11]                                          ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[107] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.072      ; 1.128      ;
+; 0.887 ; packet_id[6]                                           ; packet_id[7]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 1.128      ;
+; 0.887 ; packet_id[4]                                           ; packet_id[5]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 1.128      ;
+; 0.888 ; packet_id[14]                                          ; packet_id[15]                                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 1.129      ;
+; 0.888 ; packet_id[12]                                          ; packet_id[13]                                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 1.129      ;
+; 0.890 ; packet_id[2]                                           ; packet_id[3]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 1.131      ;
+; 0.890 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[4]         ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[6]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 1.131      ;
+; 0.891 ; packet_id[7]                                           ; packet_id[8]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 1.132      ;
+; 0.892 ; packet_id[10]                                          ; packet_id[11]                                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.070      ; 1.133      ;
++-------+--------------------------------------------------------+---------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
+----------------------------------------------
+; Slow 1200mV 0C Model Metastability Summary ;
+----------------------------------------------
+Design MTBF is not calculated because the design doesn't meet its timing requirements.
+
+
+
++------------------------------------+
+; Fast 1200mV 0C Model Setup Summary ;
++----------+--------+----------------+
+; Clock    ; Slack  ; End Point TNS  ;
++----------+--------+----------------+
+; CLOCK_50 ; -0.966 ; -49.504        ;
++----------+--------+----------------+
+
+
++-----------------------------------+
+; Fast 1200mV 0C Model Hold Summary ;
++----------+-------+----------------+
+; Clock    ; Slack ; End Point TNS  ;
++----------+-------+----------------+
+; CLOCK_50 ; 0.183 ; 0.000          ;
++----------+-------+----------------+
+
+
+-----------------------------------------
+; Fast 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Fast 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width Summary ;
++----------+--------+------------------------------+
+; Clock    ; Slack  ; End Point TNS                ;
++----------+--------+------------------------------+
+; CLOCK_50 ; -3.000 ; -130.559                     ;
++----------+--------+------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'CLOCK_50'                                                                                                                                                   ;
++--------+-------------------------------------------------------+---------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                             ; To Node                                           ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------------------------------------+---------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -0.966 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[3]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.018     ; 1.935      ;
+; -0.945 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.019     ; 1.913      ;
+; -0.941 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[7]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.018     ; 1.910      ;
+; -0.932 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[2]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.018     ; 1.901      ;
+; -0.930 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[14] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.019     ; 1.898      ;
+; -0.905 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[5]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.039     ; 1.853      ;
+; -0.901 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]        ; FPGA_MST_SPI_Master:spi_master_inst|mosi          ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 1.848      ;
+; -0.888 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 1.835      ;
+; -0.888 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 1.835      ;
+; -0.877 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[5]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 1.803      ;
+; -0.875 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[10] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.018     ; 1.844      ;
+; -0.875 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.019     ; 1.843      ;
+; -0.874 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[5]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.039     ; 1.822      ;
+; -0.871 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[7]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.018     ; 1.840      ;
+; -0.871 ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[0] ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.019     ; 1.839      ;
+; -0.870 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.019     ; 1.838      ;
+; -0.867 ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[0] ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[7]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.018     ; 1.836      ;
+; -0.867 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 1.792      ;
+; -0.867 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 1.792      ;
+; -0.867 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[5]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 1.793      ;
+; -0.865 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.019     ; 1.833      ;
+; -0.863 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[2]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[3]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.018     ; 1.832      ;
+; -0.862 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[2]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.018     ; 1.831      ;
+; -0.860 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[14] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.019     ; 1.828      ;
+; -0.858 ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[0] ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[2]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.018     ; 1.827      ;
+; -0.857 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 1.804      ;
+; -0.857 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 1.804      ;
+; -0.857 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 1.782      ;
+; -0.857 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 1.782      ;
+; -0.852 ; FPGA_MST_SPI_Master:spi_master_inst|delay_cnt[3]      ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 1.777      ;
+; -0.852 ; FPGA_MST_SPI_Master:spi_master_inst|delay_cnt[3]      ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 1.777      ;
+; -0.847 ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[2]      ; FPGA_MST_SPI_Master:spi_master_inst|mosi          ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 1.794      ;
+; -0.846 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[3]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.018     ; 1.815      ;
+; -0.845 ; FPGA_MST_SPI_Master:spi_master_inst|delay_cnt[1]      ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 1.770      ;
+; -0.845 ; FPGA_MST_SPI_Master:spi_master_inst|delay_cnt[1]      ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 1.770      ;
+; -0.836 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[2]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.019     ; 1.804      ;
+; -0.832 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[2]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[7]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.018     ; 1.801      ;
+; -0.832 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 1.779      ;
+; -0.832 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 1.779      ;
+; -0.830 ; FPGA_MST_SPI_Master:spi_master_inst|sck               ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[5]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.060     ; 1.757      ;
+; -0.823 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[2]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[2]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.018     ; 1.792      ;
+; -0.821 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[2]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[14] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.019     ; 1.789      ;
+; -0.819 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[14] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.019     ; 1.787      ;
+; -0.819 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.019     ; 1.787      ;
+; -0.819 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.019     ; 1.787      ;
+; -0.819 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.019     ; 1.787      ;
+; -0.819 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[6]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.019     ; 1.787      ;
+; -0.819 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[4]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.019     ; 1.787      ;
+; -0.819 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.019     ; 1.787      ;
+; -0.819 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[8]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.019     ; 1.787      ;
+; -0.818 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.019     ; 1.786      ;
+; -0.813 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[5]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.039     ; 1.761      ;
+; -0.809 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]       ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.018     ; 1.778      ;
+; -0.791 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[14] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.041     ; 1.737      ;
+; -0.791 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.041     ; 1.737      ;
+; -0.791 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.041     ; 1.737      ;
+; -0.791 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.041     ; 1.737      ;
+; -0.791 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[6]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.041     ; 1.737      ;
+; -0.791 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[4]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.041     ; 1.737      ;
+; -0.791 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.041     ; 1.737      ;
+; -0.791 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[8]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.041     ; 1.737      ;
+; -0.788 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[6]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.019     ; 1.756      ;
+; -0.788 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[4]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.019     ; 1.756      ;
+; -0.788 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.019     ; 1.756      ;
+; -0.788 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[8]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.019     ; 1.756      ;
+; -0.785 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[2]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[5]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 1.711      ;
+; -0.784 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.018     ; 1.753      ;
+; -0.781 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.018     ; 1.750      ;
+; -0.781 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[14] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.041     ; 1.727      ;
+; -0.781 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.041     ; 1.727      ;
+; -0.781 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.041     ; 1.727      ;
+; -0.781 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.041     ; 1.727      ;
+; -0.781 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[6]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.041     ; 1.727      ;
+; -0.781 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[4]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.041     ; 1.727      ;
+; -0.781 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.041     ; 1.727      ;
+; -0.781 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[8]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.041     ; 1.727      ;
+; -0.775 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[2]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 1.700      ;
+; -0.775 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[2]        ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 1.700      ;
+; -0.772 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[2]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[10] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.018     ; 1.741      ;
+; -0.772 ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[0] ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.019     ; 1.740      ;
+; -0.767 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[2]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.019     ; 1.735      ;
+; -0.767 ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[0] ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[10] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.018     ; 1.736      ;
+; -0.766 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_SEND     ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]    ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.039     ; 1.714      ;
+; -0.762 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[2]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.019     ; 1.730      ;
+; -0.755 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[1]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.019     ; 1.723      ;
+; -0.755 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[10] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.018     ; 1.724      ;
+; -0.750 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.019     ; 1.718      ;
+; -0.744 ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[0] ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[5]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.039     ; 1.692      ;
+; -0.744 ; FPGA_MST_SPI_Master:spi_master_inst|sck               ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[14] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 1.691      ;
+; -0.744 ; FPGA_MST_SPI_Master:spi_master_inst|sck               ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 1.691      ;
+; -0.744 ; FPGA_MST_SPI_Master:spi_master_inst|sck               ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 1.691      ;
+; -0.744 ; FPGA_MST_SPI_Master:spi_master_inst|sck               ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 1.691      ;
+; -0.744 ; FPGA_MST_SPI_Master:spi_master_inst|sck               ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[6]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 1.691      ;
+; -0.744 ; FPGA_MST_SPI_Master:spi_master_inst|sck               ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[4]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 1.691      ;
+; -0.744 ; FPGA_MST_SPI_Master:spi_master_inst|sck               ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 1.691      ;
+; -0.744 ; FPGA_MST_SPI_Master:spi_master_inst|sck               ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[8]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 1.691      ;
+; -0.743 ; FPGA_MST_SPI_Master:spi_master_inst|delay_cnt[2]      ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 1.668      ;
+; -0.743 ; FPGA_MST_SPI_Master:spi_master_inst|delay_cnt[2]      ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 1.668      ;
+; -0.741 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[6]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.019     ; 1.709      ;
+; -0.741 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[4]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.019     ; 1.709      ;
++--------+-------------------------------------------------------+---------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'CLOCK_50'                                                                                                                                                           ;
++-------+---------------------------------------------------------+---------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                               ; To Node                                                 ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------------------------------------------------+---------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.183 ; FPGA_MST_SPI_Master:spi_master_inst|cs                  ; FPGA_MST_SPI_Master:spi_master_inst|cs                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.307      ;
+; 0.183 ; packet_id[0]                                            ; packet_id[0]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.307      ;
+; 0.183 ; FPGA_MST_SPI_Master:spi_master_inst|sck_en              ; FPGA_MST_SPI_Master:spi_master_inst|sck_en              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.307      ;
+; 0.183 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[2]          ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[2]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.307      ;
+; 0.183 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]          ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.307      ;
+; 0.183 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]          ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[3]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.307      ;
+; 0.183 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[0]          ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[0]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.307      ;
+; 0.183 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[4]          ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[4]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.307      ;
+; 0.183 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]         ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[3]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.307      ;
+; 0.183 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]         ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[0]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.307      ;
+; 0.183 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]         ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[1]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.307      ;
+; 0.183 ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[2]         ; FPGA_MST_SPI_Master:spi_master_inst|word_idx[2]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.307      ;
+; 0.183 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_CS_HIGH    ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_CS_HIGH    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.307      ;
+; 0.183 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_CS_LOW     ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_CS_LOW     ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.307      ;
+; 0.183 ; FPGA_MST_SPI_Master:spi_master_inst|delay_cnt[1]        ; FPGA_MST_SPI_Master:spi_master_inst|delay_cnt[1]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.307      ;
+; 0.183 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_IDLE       ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_IDLE       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.307      ;
+; 0.183 ; busy                                                    ; busy                                                    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.307      ;
+; 0.183 ; key1_armed                                              ; key1_armed                                              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.307      ;
+; 0.183 ; FPGA_MST_SPI_Master:spi_master_inst|done                ; FPGA_MST_SPI_Master:spi_master_inst|done                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.307      ;
+; 0.190 ; FPGA_MST_SPI_Master:spi_master_inst|delay_cnt[0]        ; FPGA_MST_SPI_Master:spi_master_inst|delay_cnt[0]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.314      ;
+; 0.190 ; key1_meta                                               ; key1_sync                                               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.314      ;
+; 0.200 ; packet_id[15]                                           ; packet_id[15]                                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.324      ;
+; 0.200 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[8]          ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[8]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.039      ; 0.323      ;
+; 0.201 ; key1_sync                                               ; busy                                                    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.325      ;
+; 0.202 ; key1_sync                                               ; start_sig                                               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.326      ;
+; 0.203 ; key1_sync                                               ; key1_armed                                              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.327      ;
+; 0.295 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[3]          ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[3]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.039      ; 0.418      ;
+; 0.296 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[1]          ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[1]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.039      ; 0.419      ;
+; 0.296 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[7]          ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[7]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.039      ; 0.419      ;
+; 0.297 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[4]          ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[4]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.039      ; 0.420      ;
+; 0.297 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[5]          ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[5]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.039      ; 0.420      ;
+; 0.298 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[2]          ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[2]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.039      ; 0.421      ;
+; 0.298 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[6]          ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[6]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.039      ; 0.421      ;
+; 0.301 ; packet_id[14]                                           ; packet_id[14]                                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.425      ;
+; 0.301 ; packet_id[12]                                           ; packet_id[12]                                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.425      ;
+; 0.301 ; packet_id[6]                                            ; packet_id[6]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.425      ;
+; 0.301 ; packet_id[4]                                            ; packet_id[4]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.425      ;
+; 0.301 ; packet_id[2]                                            ; packet_id[2]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.425      ;
+; 0.302 ; packet_id[10]                                           ; packet_id[10]                                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.426      ;
+; 0.302 ; packet_id[8]                                            ; packet_id[8]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.426      ;
+; 0.302 ; packet_id[7]                                            ; packet_id[7]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.426      ;
+; 0.303 ; packet_id[9]                                            ; packet_id[9]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.427      ;
+; 0.303 ; packet_id[5]                                            ; packet_id[5]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.427      ;
+; 0.303 ; packet_id[3]                                            ; packet_id[3]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.427      ;
+; 0.304 ; packet_id[13]                                           ; packet_id[13]                                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.428      ;
+; 0.304 ; packet_id[11]                                           ; packet_id[11]                                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.428      ;
+; 0.307 ; packet_id[1]                                            ; packet_id[1]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.431      ;
+; 0.309 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[0]          ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[0]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.039      ; 0.432      ;
+; 0.311 ; busy                                                    ; start_sig                                               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.435      ;
+; 0.311 ; packet_id[0]                                            ; packet_id[1]                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.435      ;
+; 0.313 ; key1_armed                                              ; start_sig                                               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.437      ;
+; 0.314 ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[0]   ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[5]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.039      ; 0.437      ;
+; 0.315 ; key1_armed                                              ; busy                                                    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.439      ;
+; 0.315 ; busy                                                    ; key1_armed                                              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.439      ;
+; 0.317 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_IDLE       ; FPGA_MST_SPI_Master:spi_master_inst|done                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.441      ;
+; 0.319 ; FPGA_MST_SPI_Master:spi_master_inst|done                ; busy                                                    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.443      ;
+; 0.322 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_IDLE       ; FPGA_MST_SPI_Master:spi_master_inst|cs                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.446      ;
+; 0.324 ; FPGA_MST_SPI_Master:spi_master_inst|sck_en              ; FPGA_MST_SPI_Master:spi_master_inst|sck                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.448      ;
+; 0.330 ; packet_id[4]                                            ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[68]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.454      ;
+; 0.330 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_DONE       ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_SEND       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.454      ;
+; 0.333 ; packet_id[4]                                            ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[100] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.457      ;
+; 0.336 ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[69]  ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[5]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.039      ; 0.459      ;
+; 0.342 ; start_sig                                               ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_IDLE       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.466      ;
+; 0.363 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_LOAD       ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_IDLE       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.487      ;
+; 0.376 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_LOAD       ; FPGA_MST_SPI_Master:spi_master_inst|sck_en              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.500      ;
+; 0.385 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_SEND       ; FPGA_MST_SPI_Master:spi_master_inst|sck_en              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.509      ;
+; 0.402 ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[0]          ; FPGA_MST_SPI_Master:spi_master_inst|bit_cnt[1]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.526      ;
+; 0.406 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_LOAD       ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_SEND       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.530      ;
+; 0.408 ; packet_id[6]                                            ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[70]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.047      ; 0.539      ;
+; 0.412 ; packet_id[6]                                            ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[102] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.047      ; 0.543      ;
+; 0.416 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_IDLE       ; FPGA_MST_SPI_Master:spi_master_inst|delay_cnt[2]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.041      ; 0.541      ;
+; 0.417 ; packet_id[8]                                            ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[104] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.047      ; 0.548      ;
+; 0.417 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_IDLE       ; FPGA_MST_SPI_Master:spi_master_inst|delay_cnt[1]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.041      ; 0.542      ;
+; 0.421 ; packet_id[13]                                           ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[109] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.047      ; 0.552      ;
+; 0.422 ; packet_id[13]                                           ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[77]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.047      ; 0.553      ;
+; 0.422 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_LOAD       ; FPGA_MST_SPI_Master:spi_master_inst|cs                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.546      ;
+; 0.423 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_SEND       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[6]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.041      ; 0.548      ;
+; 0.423 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_SEND       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[4]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.041      ; 0.548      ;
+; 0.423 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_SEND       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[13]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.041      ; 0.548      ;
+; 0.423 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_SEND       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[8]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.041      ; 0.548      ;
+; 0.423 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_SEND       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[1]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.041      ; 0.548      ;
+; 0.426 ; packet_id[14]                                           ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[110] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.041      ; 0.551      ;
+; 0.427 ; packet_id[12]                                           ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[108] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.551      ;
+; 0.431 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_SEND       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[11]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.041      ; 0.556      ;
+; 0.431 ; packet_id[3]                                            ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[99]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.041      ; 0.556      ;
+; 0.433 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_SEND       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[14]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.041      ; 0.558      ;
+; 0.433 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_SEND       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[9]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.041      ; 0.558      ;
+; 0.434 ; FPGA_MST_SPI_Master:spi_master_inst|state.ST_SEND       ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[12]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.041      ; 0.559      ;
+; 0.438 ; packet_id[11]                                           ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[107] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.041      ; 0.563      ;
+; 0.440 ; packet_id[2]                                            ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[98]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.041      ; 0.565      ;
+; 0.442 ; packet_id[7]                                            ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[103] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.041      ; 0.567      ;
+; 0.443 ; packet_id[14]                                           ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[78]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.041      ; 0.568      ;
+; 0.443 ; packet_id[10]                                           ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[106] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.567      ;
+; 0.444 ; packet_id[12]                                           ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[76]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.040      ; 0.568      ;
+; 0.444 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[3]          ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[4]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.039      ; 0.567      ;
+; 0.445 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[7]          ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[8]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.039      ; 0.568      ;
+; 0.445 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[1]          ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[2]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.039      ; 0.568      ;
+; 0.445 ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[101] ; FPGA_MST_SPI_Master:spi_master_inst|shift_reg[5]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.039      ; 0.568      ;
+; 0.446 ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[5]          ; FPGA_MST_SPI_Master:spi_master_inst|clk_div[6]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.039      ; 0.569      ;
+; 0.447 ; packet_id[3]                                            ; FPGA_MST_SPI_Master:spi_master_inst|packet_latched[67]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.041      ; 0.572      ;
++-------+---------------------------------------------------------+---------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
+----------------------------------------------
+; Fast 1200mV 0C Model Metastability Summary ;
+----------------------------------------------
+Design MTBF is not calculated because the design doesn't meet its timing requirements.
+
+
+
++--------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                            ;
++------------------+----------+-------+----------+---------+---------------------+
+; Clock            ; Setup    ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+----------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -3.026   ; 0.183 ; N/A      ; N/A     ; -3.000              ;
+;  CLOCK_50        ; -3.026   ; 0.183 ; N/A      ; N/A     ; -3.000              ;
+; Design-wide TNS  ; -215.957 ; 0.0   ; 0.0      ; 0.0     ; -157.2              ;
+;  CLOCK_50        ; -215.957 ; 0.000 ; N/A      ; N/A     ; -157.200            ;
++------------------+----------+-------+----------+---------+---------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                                                                    ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; Pin           ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ; EBD File Name ; EBD Signal Name ; EBD Far-end ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; SPI_SCK       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; SPI_MOSI      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; SPI_CS        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+
+
++----------------------------------------------------------------------------+
+; Input Transition Times                                                     ;
++-------------------------+--------------+-----------------+-----------------+
+; Pin                     ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
++-------------------------+--------------+-----------------+-----------------+
+; SW[0]                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[1]                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; KEY[2]                  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; KEY[3]                  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; CLOCK_50                ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; KEY[0]                  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[17]                  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[7]                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[5]                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[9]                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[3]                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[12]                  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[14]                  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[16]                  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[10]                  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[13]                  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[15]                  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[11]                  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[6]                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[4]                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[8]                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[2]                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; KEY[1]                  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_ASDO_DATA1~     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_FLASH_nCE_nCSO~ ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_DATA0~          ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
++-------------------------+--------------+-----------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; SPI_SCK       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.49e-09 V                   ; 2.38 V              ; -0.00552 V          ; 0.096 V                              ; 0.019 V                              ; 4.18e-10 s                  ; 3.59e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 4.49e-09 V                  ; 2.38 V             ; -0.00552 V         ; 0.096 V                             ; 0.019 V                             ; 4.18e-10 s                 ; 3.59e-10 s                 ; No                        ; Yes                       ;
+; SPI_MOSI      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.49e-09 V                   ; 2.38 V              ; -0.00552 V          ; 0.096 V                              ; 0.019 V                              ; 4.18e-10 s                  ; 3.59e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 4.49e-09 V                  ; 2.38 V             ; -0.00552 V         ; 0.096 V                             ; 0.019 V                             ; 4.18e-10 s                 ; 3.59e-10 s                 ; No                        ; Yes                       ;
+; SPI_CS        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.49e-09 V                   ; 2.38 V              ; -0.00552 V          ; 0.096 V                              ; 0.019 V                              ; 4.18e-10 s                  ; 3.59e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 4.49e-09 V                  ; 2.38 V             ; -0.00552 V         ; 0.096 V                             ; 0.019 V                             ; 4.18e-10 s                 ; 3.59e-10 s                 ; No                        ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.67e-09 V                   ; 2.38 V              ; -0.0485 V           ; 0.167 V                              ; 0.096 V                              ; 2.95e-10 s                  ; 2.73e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.67e-09 V                  ; 2.38 V             ; -0.0485 V          ; 0.167 V                             ; 0.096 V                             ; 2.95e-10 s                 ; 2.73e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.18e-09 V                   ; 2.38 V              ; -0.00483 V          ; 0.152 V                              ; 0.012 V                              ; 4.81e-10 s                  ; 6.29e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.18e-09 V                  ; 2.38 V             ; -0.00483 V         ; 0.152 V                             ; 0.012 V                             ; 4.81e-10 s                 ; 6.29e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 85c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; SPI_SCK       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 6.92e-07 V                   ; 2.35 V              ; -0.00996 V          ; 0.121 V                              ; 0.03 V                               ; 4.64e-10 s                  ; 4.47e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 6.92e-07 V                  ; 2.35 V             ; -0.00996 V         ; 0.121 V                             ; 0.03 V                              ; 4.64e-10 s                 ; 4.47e-10 s                 ; Yes                       ; Yes                       ;
+; SPI_MOSI      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 6.92e-07 V                   ; 2.35 V              ; -0.00996 V          ; 0.121 V                              ; 0.03 V                               ; 4.64e-10 s                  ; 4.47e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 6.92e-07 V                  ; 2.35 V             ; -0.00996 V         ; 0.121 V                             ; 0.03 V                              ; 4.64e-10 s                 ; 4.47e-10 s                 ; Yes                       ; Yes                       ;
+; SPI_CS        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 6.92e-07 V                   ; 2.35 V              ; -0.00996 V          ; 0.121 V                              ; 0.03 V                               ; 4.64e-10 s                  ; 4.47e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 6.92e-07 V                  ; 2.35 V             ; -0.00996 V         ; 0.121 V                             ; 0.03 V                              ; 4.64e-10 s                 ; 4.47e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.75e-07 V                   ; 2.35 V              ; -0.0109 V           ; 0.084 V                              ; 0.027 V                              ; 4.31e-10 s                  ; 3.61e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.75e-07 V                  ; 2.35 V             ; -0.0109 V          ; 0.084 V                             ; 0.027 V                             ; 4.31e-10 s                 ; 3.61e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 6.15e-07 V                   ; 2.35 V              ; -0.00712 V          ; 0.093 V                              ; 0.02 V                               ; 6.21e-10 s                  ; 7.9e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 6.15e-07 V                  ; 2.35 V             ; -0.00712 V         ; 0.093 V                             ; 0.02 V                              ; 6.21e-10 s                 ; 7.9e-10 s                  ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Fast 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; SPI_SCK       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; SPI_MOSI      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; SPI_CS        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.22e-08 V                   ; 2.74 V              ; -0.06 V             ; 0.158 V                              ; 0.08 V                               ; 2.68e-10 s                  ; 2.19e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 2.22e-08 V                  ; 2.74 V             ; -0.06 V            ; 0.158 V                             ; 0.08 V                              ; 2.68e-10 s                 ; 2.19e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.54e-08 V                   ; 2.7 V               ; -0.00943 V          ; 0.276 V                              ; 0.035 V                              ; 3.19e-10 s                  ; 4.99e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 3.54e-08 V                  ; 2.7 V              ; -0.00943 V         ; 0.276 V                             ; 0.035 V                             ; 3.19e-10 s                 ; 4.99e-10 s                 ; No                        ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; CLOCK_50   ; CLOCK_50 ; 1500     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; CLOCK_50   ; CLOCK_50 ; 1500     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths Summary                    ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 18    ; 18   ;
+; Unconstrained Input Port Paths  ; 153   ; 153  ;
+; Unconstrained Output Ports      ; 3     ; 3    ;
+; Unconstrained Output Port Paths ; 3     ; 3    ;
++---------------------------------+-------+------+
+
+
++------------------------------------------+
+; Clock Status Summary                     ;
++----------+----------+------+-------------+
+; Target   ; Clock    ; Type ; Status      ;
++----------+----------+------+-------------+
+; CLOCK_50 ; CLOCK_50 ; Base ; Constrained ;
++----------+----------+------+-------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; KEY[0]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; KEY[1]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[2]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[3]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[4]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[5]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[6]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[7]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[8]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[9]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[10]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[11]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[12]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[13]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[14]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[15]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[16]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[17]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; SPI_CS      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SPI_MOSI    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SPI_SCK     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; KEY[0]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; KEY[1]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[2]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[3]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[4]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[5]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[6]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[7]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[8]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[9]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[10]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[11]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[12]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[13]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[14]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[15]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[16]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SW[17]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; SPI_CS      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SPI_MOSI    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SPI_SCK     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Thu Jul 16 23:12:59 2026
+Info: Command: quartus_sta FPGA_Master -c FPGA_Master
+Info: qsta_default_script.tcl version: #1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'FPGA_Master.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name CLOCK_50 CLOCK_50
+Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow 1200mV 85C Model
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -3.026
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.026            -215.957 CLOCK_50 
+Info (332146): Worst-case hold slack is 0.403
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.403               0.000 CLOCK_50 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000            -157.200 CLOCK_50 
+Info (332114): Report Metastability: Found 1 synchronizer chains.
+    Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
+Info: Analyzing Slow 1200mV 0C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -2.693
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.693            -186.480 CLOCK_50 
+Info (332146): Worst-case hold slack is 0.355
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.355               0.000 CLOCK_50 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000            -157.200 CLOCK_50 
+Info (332114): Report Metastability: Found 1 synchronizer chains.
+    Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
+Info: Analyzing Fast 1200mV 0C Model
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -0.966
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -0.966             -49.504 CLOCK_50 
+Info (332146): Worst-case hold slack is 0.183
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.183               0.000 CLOCK_50 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000            -130.559 CLOCK_50 
+Info (332114): Report Metastability: Found 1 synchronizer chains.
+    Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 4889 megabytes
+    Info: Processing ended: Thu Jul 16 23:13:03 2026
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:03
+
+

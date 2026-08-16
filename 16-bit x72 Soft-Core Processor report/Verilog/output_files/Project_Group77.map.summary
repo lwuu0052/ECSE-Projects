@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Tue Oct 21 22:39:50 2025
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : Project_Group77
+Top-level Entity Name : proc_top_level
+Family : MAX 10
+Total logic elements : 577
+    Total combinational functions : 449
+    Dedicated logic registers : 173
+Total registers : 173
+Total pins : 28
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 2
+Total PLLs : 0
+UFM blocks : 0
+ADC blocks : 0

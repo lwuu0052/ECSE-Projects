@@ -1,0 +1,33 @@
+module proc_extension_top_level (
+    input  [1:0] KEY,          // KEY[0] = reset (active-low), KEY[1] = clock (active-low)
+    input  [9:0] SW,           // SW[9] = enable, SW[8:0] = DIN instruction
+    output [9:0] LEDR,         // show lower 10 bits of processor bus
+    output [7:0] HEX5, HEX4, HEX3, HEX2, HEX1, HEX0  // display output
+);
+
+    wire [15:0] bus_split;
+	 
+    // === Instantiate the CPU (includes BCD decoder internally) ===
+    simple_proc CPU (
+        .clk(~KEY[1]),          // press KEY1 to advance one tick
+        .rst(~KEY[0]),          // KEY0 = synchronous reset (active low)
+        .enable(SW[9]),         // enable tied to SW[9]
+        .din(SW[8:0]),          // instruction input
+
+        // outputs
+        .bus(bus_split),  // show bus lower 10 bits on LEDR
+        .HEX0(HEX0),            // directly pass HEX display out
+        .HEX1(HEX1),
+        .HEX2(HEX2),
+        .HEX3(HEX3),
+        .HEX4(HEX4),
+        .HEX5(HEX5),
+
+        // unused register taps
+        .R0(), .R1(), .R2(), .R3(), .R4(), .R5(), .R6(), .R7(),
+        .display()              // optional internal value, not shown on board
+    );
+	 
+	 assign LEDR[9:0] = bus_split[9:0];
+
+endmodule

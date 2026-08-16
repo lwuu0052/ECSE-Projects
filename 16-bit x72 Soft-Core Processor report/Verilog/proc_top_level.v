@@ -1,0 +1,11 @@
+module proc_top_level(LEDR, SW, KEY, HEX5);
+	input [1:0] KEY;
+	input [8:0] SW;
+	output [9:0] LEDR;
+	output [6:0] HEX5;
+	wire [15:0] bus_split;
+	
+	simple_proc ist_simple_proc(.clk(~KEY[1]), .rst(~KEY[0]), .enable(1'b1), .din(SW[8:0]), .R0(), .R1(), .R2(), .R3(), .R4(), .R5(), .R6(), .R7(), .bus(bus_split), .HEX5(HEX5));
+	assign LEDR[9:0] = bus_split[9:0];
+	
+endmodule
