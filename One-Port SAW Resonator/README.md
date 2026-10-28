@@ -1,6 +1,6 @@
 # One-Port SAW Resonator: Fabrication and Temperature Characterisation
 
-![Fabricated SAW resonator and packaging](images/SAW_device_packaging.jpeg)
+![Fabricated SAW resonator and packaging](SAW_device_packaging.jpeg)
 We fabricated one-port surface acoustic wave (SAW) resonators on 128° YX-cut lithium niobate (LiNbO₃) and aluminium nitride (AlN), then measured how their resonant frequency changes with temperature to evaluate them as passive temperature sensors.
 
 **Team:** Wu Li Min, Liew Wei Shen, Gary Tan Jia Hoong, Tang Wei Zhi
